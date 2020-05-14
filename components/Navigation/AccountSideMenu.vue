@@ -1,0 +1,258 @@
+<template>
+	<div class="account-side-menu">
+		<div class="user-info">
+			<div class="user-info-top">
+				<img src="https://www.nretnil.com/avatar/swag_25k.jpg">
+				<div class="user-profile">
+					<p class="user-profile-top">
+						Ben Jhamin
+					</p>
+					<p class="user-profile-bottom">
+						@davearts
+					</p>
+				</div>
+			</div>
+			<div class="user-info-bottom">
+				<p>Member since: January 30, 2017</p>
+			</div>
+		</div>
+		<ul>
+			<li class="account">
+				<nuxt-link :to="`/account/settings`">
+					<div class="icn-bg">
+						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M10 15C10.6904 15 11.25 14.4404 11.25 13.75C11.25 13.0596 10.6904 12.5 10 12.5C9.30964 12.5 8.75 13.0596 8.75 13.75C8.75 14.4404 9.30964 15 10 15Z" fill="#2CC9E3"/>
+						<path d="M14.167 9.16667H7.50033V6.66667C7.50033 5.28833 8.62199 4.16667 10.0003 4.16667C11.3787 4.16667 12.5003 5.28833 12.5003 6.66667V7.5H14.167V6.66667C14.167 4.36917 12.2978 2.5 10.0003 2.5C7.70283 2.5 5.83366 4.36917 5.83366 6.66667V9.16667C4.91449 9.16667 4.16699 9.915 4.16699 10.8333V16.6667C4.16699 17.5858 4.91449 18.3333 5.83366 18.3333H14.167C15.0862 18.3333 15.8337 17.5858 15.8337 16.6667V10.8333C15.8337 9.91417 15.0862 9.16667 14.167 9.16667ZM5.83366 16.6667V10.8333H14.167L14.1678 16.6667H5.83366Z" fill="#2CC9E3"/>
+						</svg>
+					</div>
+					<p>Account settings</p>
+				</nuxt-link>
+			</li>
+			<li class="user">
+				<nuxt-link :to="`/account/personinfo`">
+					<div class="icn-bg">
+						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M10.0013 10.005C8.16297 10.005 6.66797 8.51005 6.66797 6.67171C6.66797 4.83421 8.16297 3.33838 10.0013 3.33838C11.8396 3.33838 13.3346 4.83421 13.3346 6.67171C13.3346 8.51005 11.8396 10.005 10.0013 10.005ZM10.0013 5.00505C9.08214 5.00505 8.33464 5.75171 8.33464 6.67171C8.33464 7.59088 9.08214 8.33838 10.0013 8.33838C10.9205 8.33838 11.668 7.59088 11.668 6.67171C11.668 5.75171 10.9205 5.00505 10.0013 5.00505Z" fill="#9978FB"/>
+							<path d="M16.6683 16.6718H3.33496V15.8384C3.33496 12.8943 6.07663 10.8384 10.0016 10.8384C13.9266 10.8384 16.6683 12.8943 16.6683 15.8384V16.6718ZM5.13413 15.0051H14.87C14.3716 13.4984 12.5091 12.5051 10.0025 12.5051C7.49579 12.5051 5.63246 13.4984 5.13413 15.0051Z" fill="#9978FB"/>
+						</svg>
+					</div>
+					<p>Personal info</p>
+				</nuxt-link>
+			</li>
+			<li class="contact">
+				<nuxt-link :to="`/account/contact`">
+					<div class="icn-bg">
+						<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M11.9997 11.9995V8.24968H13.4997L9.74984 5.24981L6 8.24968H7.49994V11.9995H8.99987V9.74962H10.4998V11.9995H11.9997Z" fill="#44DC94"/>
+							<path d="M3.74994 8.24972H5.24988V4.49988H2.25V5.99982H3.74994V8.24972Z" fill="#44DC94"/>
+							<path d="M3.74994 12.7495H5.24988V8.99966H2.25V10.4996H3.74994V12.7495Z" fill="#44DC94"/>
+							<path d="M14.2495 1.49986H5.24988C4.42266 1.49986 3.74994 2.17183 3.74994 2.99979V3.74976H5.24988V2.99979H14.2495L14.2502 14.9993H5.24988V13.4994H2.25V14.9993H3.74994C3.74994 15.8265 4.42266 16.4992 5.24988 16.4992H14.2495C15.0767 16.4992 15.7494 15.8265 15.7494 14.9993V2.99979C15.7494 2.17183 15.0767 1.49986 14.2495 1.49986Z" fill="#44DC94"/>
+						</svg>
+					</div>
+					<p>Contact Details</p>
+				</nuxt-link>
+			</li>
+			<li class="alarm large-bottom">
+				<nuxt-link :to="`/account/notification`">
+					<div class="icn-bg">
+						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M7.12891 15.8334C7.70641 16.8251 8.76974 17.5001 9.99974 17.5001C11.2297 17.5001 12.2931 16.8251 12.8706 15.8334H7.12891Z" fill="#EE91FB"/>
+							<path d="M17.5 15H2.5V12.7325L3.07 12.5433C4.22417 12.1575 5 11.0817 5 9.865V7.5C5 4.7425 7.2425 2.5 10 2.5C12.7575 2.5 15 4.7425 15 7.5V9.865C15 11.0817 15.7758 12.1575 16.93 12.5433L17.5 12.7325V15ZM5.02917 13.3333H14.9717C13.9542 12.4983 13.3333 11.2383 13.3333 9.865V7.5C13.3333 5.66167 11.8383 4.16667 10 4.16667C8.16167 4.16667 6.66667 5.66167 6.66667 7.5V9.865C6.66667 11.2383 6.04583 12.4983 5.02917 13.3333Z" fill="#EE91FB"/>
+						</svg>
+					</div>
+					<p>Notification settings</p>
+				</nuxt-link>
+			</li>
+			<li class="sep">
+				<div class="horizontal-line"></div>
+			</li>
+			<li class="order large-bottom">
+				<nuxt-link :to="`/account/orders`">
+					<div class="icn-bg">
+						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M16.6638 7.43095C16.628 6.99845 16.2672 6.66678 15.8338 6.66678H14.1672V5.83345C14.1672 3.53595 12.298 1.66678 10.0005 1.66678C7.70301 1.66678 5.83384 3.53595 5.83384 5.83345V6.66678H4.16718C3.73384 6.66678 3.37301 6.99845 3.33718 7.43095L2.50384 17.4309C2.48468 17.6626 2.56218 17.8934 2.72051 18.0643C2.87801 18.2359 3.10134 18.3334 3.33384 18.3334H16.6672C16.8997 18.3334 17.123 18.2359 17.2805 18.0643C17.438 17.8934 17.5163 17.6634 17.4972 17.4309L16.6638 7.43095ZM7.50051 5.83345C7.50051 4.45511 8.62218 3.33345 10.0005 3.33345C11.3788 3.33345 12.5005 4.45511 12.5005 5.83345V6.66678H7.50051V5.83345ZM4.23968 16.6668L4.93384 8.33345H5.83384V10.8334H7.50051V8.33345H12.5005V10.8334H14.1672V8.33345H15.0672L15.7613 16.6668H4.23968Z" fill="#2E9BFF"/>
+						</svg>
+					</div>
+					<p>My orders</p>
+				</nuxt-link>
+			</li>
+			<li class="sep">
+				<div class="horizontal-line"></div>
+			</li>
+			<li class="shop large-bottom">
+				<nuxt-link :to="`/account/shop/dashboard`">
+					<div class="icn-bg">
+						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M19.1139 8.87428L16.6139 2.20761C16.4914 1.88261 16.1806 1.66678 15.8331 1.66678H4.16641C3.81891 1.66678 3.50807 1.88261 3.38557 2.20761L0.885573 8.87428C0.790573 9.13011 0.825574 9.41678 0.980574 9.64095C1.13724 9.86595 1.39307 10.0001 1.66641 10.0001H2.49974V17.5001C2.49974 17.9601 2.87224 18.3334 3.33307 18.3334H16.6664C17.1272 18.3334 17.4997 17.9601 17.4997 17.5001V10.0001H18.3331C18.6064 10.0001 18.8622 9.86595 19.0181 9.64095C19.1739 9.41678 19.2089 9.13011 19.1139 8.87428ZM17.1306 8.33345H14.8181L13.5681 3.33345H15.2556L17.1306 8.33345ZM6.90057 8.33345L8.15057 3.33345H9.16641V8.33345H6.90057ZM10.8331 3.33345H11.8489L13.0989 8.33345H10.8331V3.33345ZM4.74391 3.33345H6.43141L5.18141 8.33345H2.86891L4.74391 3.33345ZM11.6664 16.6668V12.5001H13.3331V16.6668H11.6664ZM15.8331 16.6668H14.9997V11.6668C14.9997 11.2068 14.6272 10.8334 14.1664 10.8334H10.8331C10.3722 10.8334 9.99974 11.2068 9.99974 11.6668V16.6668H4.16641V10.0001H15.8331V16.6668Z" fill="#FFA057"/>
+							<path d="M5.83333 15.0003H8.33333C8.79417 15.0003 9.16667 14.627 9.16667 14.167V11.667C9.16667 11.207 8.79417 10.8336 8.33333 10.8336H5.83333C5.3725 10.8336 5 11.207 5 11.667V14.167C5 14.627 5.3725 15.0003 5.83333 15.0003Z" fill="#FFA057"/>
+						</svg>
+					</div>
+					<p>My skateshop</p>
+				</nuxt-link>
+			</li>
+			<li class="sep">
+				<div class="horizontal-line"></div>
+			</li>
+			<li class="power">
+				<nuxt-link :to="`/account/logout`">
+					<div class="icn-bg">
+						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M12.4997 4.65759V6.51009C13.9922 7.37676 14.9997 8.98843 14.9997 10.8334C14.9997 13.5909 12.7572 15.8334 9.99967 15.8334C7.24217 15.8334 4.99967 13.5909 4.99967 10.8334C4.99967 8.98759 6.00717 7.37676 7.49967 6.51009V4.65759C5.05967 5.64926 3.33301 8.04176 3.33301 10.8334C3.33301 14.5093 6.32384 17.5001 9.99967 17.5001C13.6755 17.5001 16.6663 14.5093 16.6663 10.8334C16.6663 8.04176 14.9397 5.64926 12.4997 4.65759Z" fill="#F5404C"/>
+							<path d="M10.8327 2.5H9.16602V9.16667H10.8327V2.5Z" fill="#F5404C"/>
+						</svg>
+					</div>
+					<p>Logout</p>
+				</nuxt-link>
+			</li>
+
+		</ul>
+	</div>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style lang="scss" scoped>
+@import "~assets/css/variable.scss";
+.account-side-menu{
+	width: 372px;
+	padding-top: 40px;
+	padding-bottom: 30px;
+	border: 1px solid #F3F4F4;
+	box-sizing: border-box;
+	box-shadow: 0px 15px 40px rgba(45, 55, 72, 0.05);
+	// box-shadow: 0px 15px 40px rgba(45, 55, 72, 0.5);
+	border-radius: 15px;
+	height: fit-content;
+}
+.user-info{
+	margin-left: 40px;
+	margin-right: 40px;
+	padding-bottom: 20px;
+	border-bottom:  1px solid #F3F4F4;
+}
+.user-info-top{
+	display: flex;
+	align-items: center;
+}
+.user-info-top img{
+	width: 60px;
+	height: 60p;
+	border-radius: 15px;
+}
+.user-profile{
+	margin-left: 20px;
+}
+.user-profile p.user-profile-top{
+	font-family: $font-family-primary;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 24px;
+	line-height: 33px;
+	color: #283441;
+}
+.user-profile p.user-profile-bottom{
+	font-family: $font-family-primary;
+	font-style: normal;
+	font-weight: 300;
+	font-size: 14px;
+	line-height: 180%;
+	letter-spacing: 0.01em;
+	color: #283441;
+}
+.user-info-bottom{
+	font-family: $font-family-primary;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 10px;
+	line-height: 14px;
+	letter-spacing: 0.03em;
+	color: #707780;
+	margin-top: 10px;
+}
+
+.icn-bg{
+	width: 30px;
+	height: 30px;
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.account-side-menu ul{
+	margin-top: 30px;
+}
+
+.account-side-menu ul li a{
+	display: flex;
+	align-items: center;
+	padding-left: 40px;
+	box-sizing: border-box;
+	margin-bottom: 20px;
+}
+.account-side-menu ul li:last-child a{
+	margin-bottom: 0px;
+}
+.account-side-menu ul li.large-bottom{
+	margin-bottom: 0px;
+}
+.account-side-menu ul li p{
+	margin-left: 20px;
+	font-family: $font-family-primary;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 19px;
+	letter-spacing: 0.02em;
+	color: #283441;
+}
+.horizontal-line{
+	width: 292px;
+	height: 1px;
+	background: #F3F4F4;
+	// background: black;
+	margin: 30px auto;
+}
+.account .icn-bg{
+	background: #D5F4F9;
+}
+.account-side-menu ul li.account a.nuxt-link-active{
+	border-left: 2px solid #2CC9E3;
+}
+.user .icn-bg{
+	background: #EBE4FE;
+}
+.account-side-menu ul li.user a.nuxt-link-active{
+	border-left: 2px solid #9978FB;
+}
+.contact .icn-bg{
+	background: #DAF8EA;
+}
+.account-side-menu ul li.contact a.nuxt-link-active{
+	border-left: 2px solid #44DC94;
+}
+.alarm .icn-bg{
+	background: #FCE9FE;
+}
+.account-side-menu ul li.alarm a.nuxt-link-active{
+	border-left:2px solid #EE91FB;
+}
+.order .icn-bg{
+	background: #D5EBFF;
+}
+.account-side-menu ul li.order a.nuxt-link-active{
+	border-left:2px solid #2E9BFF;
+}
+.shop .icn-bg{
+	background: #FFECDD;
+}
+.account-side-menu ul li.shop a.nuxt-link-active{
+	border-left:2px solid #FFA057;
+}
+.power .icn-bg{
+	background: #FDD9DB;
+}
+</style>
