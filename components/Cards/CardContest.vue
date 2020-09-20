@@ -2,7 +2,7 @@
     <div class="card-contest-closed" style="">
         <div class="closed_contest_overlay">
             <div class="closed_contest_overlay_text">
-                <img src="https://resources/assets/images/brand_logo/1567515154.logo-RedBull.png" alt="logo-Arizona.png">
+                <img src="https://pngriver.com/wp-content/uploads/2018/03/Download-Red-Bull-Transparent-Background-For-Designing-Purpose.png" alt="logo-Arizona.png">
                 <div class="contest-title">Arizona - Pattern it!</div>
                 <div class="closed_contest_bottom">
                     <ul>
@@ -34,7 +34,7 @@
                             <p><span class="largeTxt">3 </span> designs</p>
                         </li>
                     </ul>
-                    <nuxt-link :to="`/contests/1`"><btn-text btnClass="btn primary lg">Submit your design</btn-text></nuxt-link>
+                    <nuxt-link :to="`/contests/1`" v-if="!$device.isMobile"><btn-text btnClass="btn primary lg">Submit your design</btn-text></nuxt-link>
                 </div>
             </div>
         </div>
@@ -49,12 +49,11 @@ export default {
 
 <style lang="scss" scoped>
 @import "~assets/css/variable.scss";
-
 .card-contest-closed{
     // width: 412px;
     width: 100%;
     height: 300px;
-    background-image: url('https://resources/assets/images/contest_images/photo-1531948371443-d5afa127f918.jpg');
+    background-image: url('https://images.unsplash.com/photo-1520045892732-304bc3ac5d8e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80');
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
@@ -82,6 +81,8 @@ export default {
 }
 .closed_contest_overlay_text img{
     margin-bottom: 10px;
+    width: 78px;
+    height: 18px;
 }
 .contest-title{
     font-family: $font-family-primary;
@@ -92,12 +93,10 @@ export default {
     color: #FFFFFF;
 }
 .closed_contest_bottom{
-    // position: absolute;
     margin-top: 25px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     color: white;
     font-family: $font-family-primary;
     font-style: normal;
@@ -119,6 +118,12 @@ export default {
     font-weight: bold;
     font-size: 16px;
     line-height: 22px;
+}
+
+@media (max-width: 767px){
+    .card-contest-closed{
+        height: 188px;
+    }
 }
 
 

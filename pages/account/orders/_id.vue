@@ -44,7 +44,7 @@
 					<div class="col-space"></div>
 					<div class="col-item">
 						<p class="col-title">
-							Shipping address
+							Billing address
 						</p>
 						<div class="col-content">
 							<ul>
@@ -124,7 +124,37 @@
 			<div class="col-space"></div>
 			<div class="col-space"></div>
 			<div class="form-row">
-				<table class="invoice">
+				<div class="col invoice mobile-only-1023">
+					<div class="col-item">
+						<p class="col-title invoice">
+							Invoice Details
+						</p>
+						<div class="col-content">
+							<table class="invoice-mobile">
+								<tbody>
+									<tr>
+										<td class="invoice-item" width="40%">Invoice number</td>
+										<td width="60%" align="right">20190004658292</td>
+									</tr>
+									<tr>
+										<td class="invoice-item" width="40%">Invoice date</td>
+										<td  width="60%" align="right">04/09/2019</td>
+									</tr>
+									<tr>
+										<td class="invoice-item" width="40%">Invoice status</td>
+										<td width="60%" align="right"><tag-status :status="2">Paid</tag-status></td>
+									</tr>
+									<tr>
+										<td class="invoice-item" width="40%">Order total</td>
+										<td class="invoice-status" width="60%" align="right">€ 60,40</td>
+									</tr>
+								</tbody>
+							</table>
+							<btn-text btnClass="btn gray sm" class="download-invoice">Download invoice</btn-text>
+						</div>
+					</div>
+				</div>
+				<table class="invoice desktop-only-1023">
 					<thead>
 						<tr>
 							<th>Invoice number</th>
@@ -144,6 +174,7 @@
 						</tr>
 					</tbody>
 				</table>
+
 			</div>
 			<div class="products">
 				<card-productline-simpe class="product-item"/>
@@ -173,7 +204,7 @@ p.content-brand{
 	margin-top: 20px;
 }
 .content-header{
-	margin-bottom: 30px;
+	margin-bottom: 50px;
 }
 .horizontal-line{
 	width: 100%;
@@ -183,6 +214,8 @@ p.content-brand{
 .form-row{
 	width: 100%;
 	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 }
 .col{
 	display:flex;
@@ -250,5 +283,88 @@ table{
 }
 .product-item{
 	margin-top: 20px;
+}
+.desktop-only-1023{
+	display: table;
+}
+.mobile-only-1023{
+	display: none;
+}
+.col-title.invoice{
+	font-family: $font-family-primary;
+	font-weight: bold;
+	font-size: 16px;
+	line-height: 1;
+	color:#101D2C;
+}
+.invoice-mobile td.invoice-item{
+	font-family: $font-family-primary;
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 19px;
+	color: #283441;
+}
+td.invoice-status{
+	font-weight: bold !important;
+}
+@media (max-width: 1023px){
+	.col.order{
+		width: 50%;
+	}
+	.col.address{
+		width: 50%;
+	}
+	.col.summary{
+		width: 70%;
+		padding-right: 5%;
+		margin-top: 30px;
+	}
+	.col-space{
+		height: 20px;
+	}
+	.horizontal-line{
+		margin: 10px auto;
+	}
+	.desktop-only-1023{
+		display: none;
+	}
+	.mobile-only-1023{
+		display: block;
+	}
+	.col.invoice{
+		width: 70%;
+	}
+	.invoice tbody td{
+		border: none;
+		padding-bottom: 0;
+	}
+	.download-invoice{
+		margin-top: 30px;
+		width: 100%;
+	}
+	.products{
+		width: 70%;
+	}
+}
+@media (max-width: 767px){
+	.col.order{
+		width: 100%;
+	}
+	.col.address{
+		width: 100%;
+	}
+	.order-details{
+		margin-top: 25px;
+	}
+	.col.summary{
+		width: 100%;
+		padding: 0
+	}
+	.col.invoice{
+		width: 100%;
+	}
+	.products{
+		width: 100%;
+	}
 }
 </style>

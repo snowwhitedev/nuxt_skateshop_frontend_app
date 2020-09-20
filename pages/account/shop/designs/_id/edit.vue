@@ -92,6 +92,7 @@ p.rate-mark small{
     padding-top: 20px;
     display: flex;
     justify-content: space-between;
+	flex-direction: row;
 }
 .left-col{
     width: 304px;
@@ -100,10 +101,25 @@ p.rate-mark small{
     margin-left:40px;
 }
 .right-col{
-    width:412px;
+	width: 100%;
+    max-width:412px;
     background: #FAFAFB;
-    // background: #cccccc;
+	// background: gray;
     border-radius: 5px;
-    // height: 100px;
+}
+
+@media (max-width: 1023px){
+	.content-body{
+		flex-direction: column;
+	}
+	.left-col{
+		width: 200px;
+		height: 732px;
+		margin: 0 auto;
+	}
+	.right-col{
+		margin: 30px auto 50px;
+		
+	}
 }
 </style>

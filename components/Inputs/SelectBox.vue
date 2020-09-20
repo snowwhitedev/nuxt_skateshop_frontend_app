@@ -34,7 +34,6 @@ export default {
 	background-size: 10px 6px;
 	background-repeat: no-repeat;
 	background-position: 94% 50%;
-
 	line-height: 1.1;
 	height: 50px;
     border-radius: 3px;
@@ -46,9 +45,6 @@ export default {
     font-style: normal;
     font-weight: 300;
     letter-spacing: 0.01em;
-
-	padding-left: 20px;
-
 	background-clip: padding-box;
     border: 1px solid #9399A0;
 	width: 100%;

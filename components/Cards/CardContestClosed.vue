@@ -2,7 +2,7 @@
     <div class="card-contest-closed" style="">
         <div class="closed_contest_overlay">
             <div class="closed_contest_overlay_text">
-                <img src="https://resources/assets/images/brand_logo/1567515154.logo-RedBull.png" alt="logo-Arizona.png">
+                <img src="https://familytravelck.com/wp-content/uploads/2018/11/arizona-logo.png" alt="logo-Arizona.png">
                 <div class="contest-title">Arizona - Pattern it!</div>
                 <div class="closed_contest_bottom">
                     <ul>
@@ -51,10 +51,10 @@ export default {
 @import "~assets/css/variable.scss";
 
 .card-contest-closed{
-    
-    width: 412px;
+    width: 100%;
+    max-width: 412px;
     height: 300px;
-    background-image: url('https://resources/assets/images/contest_images/photo-1531948371443-d5afa127f918.jpg');
+    background-image: url('https://www.gannett-cdn.com/-mm-/ece74014a4ca26b17227aa810db4cf624153652e/c=0-43-800-493/local/-/media/Brevard/2014/02/15/-ck010809skater06.jpg20090113.jpg?width=3200&height=1680&fit=crop');
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
@@ -82,6 +82,8 @@ export default {
 }
 .closed_contest_overlay_text img{
     margin-bottom: 10px;
+    width: 80px;
+    height: 18px;
 }
 .contest-title{
     font-family: $font-family-primary;

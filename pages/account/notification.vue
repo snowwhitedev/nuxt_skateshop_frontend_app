@@ -105,7 +105,7 @@ p.content-brand{
 }
 .form-row{
 	display: flex;
-
+	flex-direction: row;
 }
 p.section-label{
 	font-family: $font-family-primary;
@@ -119,11 +119,29 @@ p.section-label{
 	display: flex;
 	justify-content: flex-end;
 	margin-top: 20px;
+	margin-bottom: 50px;
 }
 ul li{
 	margin-top: 20px;
 }
 .column{
 	padding: 0;
+}
+
+@media (max-width: 767px){
+	.form-row {
+		flex-direction: column;
+	}
+	.column {
+		margin-top: 20px;
+	}
+	ul li {
+		margin-top: 10px;
+	}
+}
+</style>
+<style>
+.account-side-menu.desktop-only-767{
+	margin-bottom: 50px;
 }
 </style>

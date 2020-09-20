@@ -41,7 +41,7 @@ export default {
 @import "~assets/css/variable.scss";
 .card-status{
 	width: 100%;
-	padding: 20px 20px 10px 20px;
+	padding: 20px 0px 10px 15px;
 	background: #FFFFFF;
 	border: 1px solid #F3F4F4;
 	box-shadow: 0px 15px 40px rgba(45, 55, 72, 0.05);
@@ -54,6 +54,9 @@ p.label{
 	font-size: 16px;
 	line-height: 22px;
 	color: #283441;
+	text-transform: capitalize;
+	text-align: left;
+	margin: 0;
 }
 p.content{
 	font-family: $font-family-primary;
@@ -62,6 +65,7 @@ p.content{
 	font-size: 34px;
 	line-height: 46px;
 	color:  #357BFF;
+	margin: 10px 0px;
 }
 .card-bottom{
 	display: flex;
@@ -76,5 +80,11 @@ p.text{
 	letter-spacing: 0.01em;
 	color: #707780;
 	margin-left: 10px;
+}
+@media (max-width: 1023px){
+	p.content{
+		font-size: 24px;
+		line-height: 33px;
+	}
 }
 </style>

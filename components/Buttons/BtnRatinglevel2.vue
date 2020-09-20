@@ -6,7 +6,6 @@
                 <line v-if="ratingLevel==3" x1="11" y1="32" x2="39" y2="32" stroke="#357BFF" stroke-width="2"/>
                 <path v-else fill-rule="evenodd" clip-rule="evenodd" d="M40 39C39.1658 31.1251 32.7683 25 25 25C17.2317 25 10.8342 31.1251 10 39L40 39Z" fill="#357BFF"/>
             </svg>
-
             <p v-else>{{ratingLevel}}</p>
         </div>
         <div class="rating-text">{{ratingText[ratingLevel-1]}}</div>
@@ -80,7 +79,6 @@ export default {
     text-align: center;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
-    
 }
 .rating-text{
     display: flex;
@@ -123,5 +121,37 @@ export default {
     border: 1px solid #D5EBFF;
     color: #D5EBFF;
     border-top:none;
+}
+
+@media (max-width: 1276px){
+    .btn.rate2{
+        width: 63px;
+        height: 91px;
+    }
+    .rating-level2{
+        width: 63px;
+        height: 63px;
+    }
+    .rating-text{
+        font-size: 10px;
+        width: 63px;
+        height: 28px;
+    }
+}
+@media (max-width: 374px){
+    .btn.rate2{
+        width: 54px;
+        height: 78px;
+    }
+    .rating-level2{
+        width: 54px;
+        height: 54px;
+    }
+    .rating-text{
+        font-size: 9px;
+        width: 54px;
+        height: 24px;
+    }
+    
 }
 </style>

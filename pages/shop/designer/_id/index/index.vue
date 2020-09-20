@@ -3,8 +3,8 @@
 		<div class="sort">
 			<dropdown-input label="Sort by" :items="sortKeys"/>
 		</div>
-		<div v-for="idx in 6" :key="idx">
-			<card-product />
+		<div v-for="item in products" :key="item.id">
+			<card-product :cardData="item"/>
 		</div>
 		<pagination class="paginator" :totalPages="3" />
 	</div>
@@ -15,10 +15,18 @@ export default {
 data(){
 	return{
 		sortKeys:[
-				{"value": "relevance", text: "relevance"},
-				{"value": "newness", text: "newness"},
-				{"value": "popularity", text: "popularity"}
-			]
+			{"value": "relevance", text: "relevance"},
+			{"value": "newness", text: "newness"},
+			{"value": "popularity", text: "popularity"}
+		],
+		products: [
+			{"id": 1},
+			{"id": 2},
+			{"id": 3},
+			{"id": 4},
+			{"id": 5},
+			{"id": 6}
+		]
 	}
 }
 }

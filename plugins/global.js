@@ -68,6 +68,11 @@ import IconPaypal from '@/components/Icons/IconPaypal.vue';
 import IconMisterCash from '@/components/Icons/IconMisterCash.vue';
 
 import Toasts from '@/components/Toasts/Toasts.vue';
+import MobileLoading from '@/components/Widgets/MobileLoading.vue';
+
+import SocialAccount from '@/components/Widgets/SocialAccount.vue';
+
+import TheFooter from '@/components/Footer/TheFooter.vue';
 
 Vue.component('input-search', InputSearch);
 Vue.component('input-email', InputEmail);
@@ -136,3 +141,9 @@ Vue.component('icon-paypal', IconPaypal);
 Vue.component('icon-mistercash', IconMisterCash);
 
 Vue.component('toasts', Toasts);
+
+Vue.component('mobile-loading', MobileLoading);
+
+Vue.component('social-account', SocialAccount);
+
+Vue.component('the-footer', TheFooter);

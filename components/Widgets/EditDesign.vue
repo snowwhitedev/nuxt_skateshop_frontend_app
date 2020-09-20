@@ -31,7 +31,7 @@
 			<label>Colors&nbsp;<small>(Select max.3 colors that match your design)</small></label>
 			<div class="color-panel">
 				<div v-for="color in colors" :key="color.value" class="color-item">
-					<checkbox-color :label="color.text" :value="color.value"/>
+					<checkbox-color :label="color.text" :val="color.value"/>
 				</div>
 			</div>
 		</div>
@@ -46,7 +46,7 @@
 			</p>
 			<div class="form-actions">
 				<btn-cancel class="form-action" @onClick="$emit('onCancel')"/>
-				<btn-text btnClass="btn primary lg" @onClick="$emit('onSubmit')">Save your information</btn-text>
+				<btn-text btnClass="btn primary lg" @onClick="$emit('onSubmit')">Save information</btn-text>
 			</div>
 		</div>
 	</div>
@@ -130,7 +130,7 @@ p.submission-terms{
 	color: #283441;
 }
 .form-actions{
-	margin-top: 10px;
+	margin-top: 20px;
 	display: flex;
 }
 .form-action{
@@ -160,5 +160,11 @@ p.submission-terms{
 }
 .desc-item p.sub-text.contest{
 	color: #F879AD;
+}
+
+@media (max-width: 1023px){
+	.submit-design{
+		padding: 20px;
+	}
 }
 </style>

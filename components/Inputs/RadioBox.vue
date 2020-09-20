@@ -64,7 +64,8 @@ export default {
     -ms-flex-pack: start;
     justify-content: flex-start;
 	margin-right: 20px;
-	font-size: 16px;
+    font-size: 16px;
+    margin-bottom: 5px;
 }
 .custom_radio label input[type=radio] {
     position: absolute;

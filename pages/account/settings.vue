@@ -37,7 +37,7 @@
 			</div>
 			<div class="form-row">
 				<div class="form-input">
-					<label>New password&nbsp;<small>(This can not be changed)</small></label>
+					<label>New password</label>
 					<input type="password" class="input-md" placeholder="Type your new password">
 				</div>
 				<div class="form-input">
@@ -47,7 +47,7 @@
 			</div>
 			<div class="horizontal-line" style=""></div>
 			<div class="form-action">
-				<btn-text btnClass="btn danger lg">Deactivate my account</btn-text>
+				<btn-text btnClass="btn danger lg" class="only-desktop-767">Deactivate my account</btn-text>
 				<btn-text btnClass="btn primary lg">Save information</btn-text>
 			</div>
 		</div>
@@ -143,6 +143,7 @@ p.content-brand{
 }
 .form-row{
 	display: flex;
+	flex-direction: row;
 	align-items: center;
 	width: 100%;
 	margin-top: 30px;
@@ -171,5 +172,49 @@ p.content-brand{
 	display: flex;
 	justify-content: space-between;
 	margin-top: 20px;
+	margin-bottom: 50px;
 }
+
+@media (max-width: 1023px){
+	.form-row{
+		flex-direction: column;
+		align-items: flex-start;
+		margin-top:20px;
+		margin-bottom: 0;
+	}
+	
+	.profile-picture{
+		width: 100px;
+		height: 100px;
+	}
+	.form-input{
+		width: 100%;
+		padding: 0px;
+	}
+	.input-md{
+		max-width: 100%;
+	}
+	.form-input:last-child {
+		padding-left: 0px;
+		margin-top: 20px;
+	}
+	p.content-brand{
+		font-size: 20px;
+		line-height: 27px;
+	}
+	
+}
+@media (max-width: 767px){
+	.only-desktop-767{
+		display: none;
+	}
+	
+}
+</style>
+<style>
+	@media (max-width: 767px){
+		.account-content-container{
+			padding-top: 20px !important;
+		}
+	}
 </style>

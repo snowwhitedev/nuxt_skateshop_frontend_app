@@ -11,7 +11,7 @@ export default {
 	name: "banner-contest",
 	data(){
 		return {
-			logoImg:"https:/resources/assets/images/brand_logo/1567515141.logo-Arizona.png"
+			logoImg:"https://cdn.freebiesupply.com/images/large/2x/sony-logo-black-and-white.png"
 		}
 	}
 }
@@ -24,7 +24,10 @@ export default {
 	border-radius: 30px;
 	overflow: hidden;
 	height: 243px;
-	background: url('https://resources/assets/banner_images/1575548579.91707570-gold-winners-achievement-trophy-background.jpg');
+	background: url('https://thumbs.dreamstime.com/z/many-gold-cup-winner-golden-cups-victory-competition-41233570.jpg');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 .bannerin:after{
 	content: '';
@@ -57,5 +60,13 @@ export default {
 	max-width: 469px;
 	line-height: 46px;
 	font-weight: $font-weight-bold;
+}
+
+@media (max-width: 767px){
+	.bannerin {
+		border-radius: 0;
+		width: calc(100% + 20px);
+		margin-left: -10px;
+	}
 }
 </style>

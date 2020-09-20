@@ -157,5 +157,35 @@ p.content-brand{
 	display: flex;
 	justify-content: flex-end;
 	margin-top: 20px;
+	margin-bottom: 50px;
+}
+@media (max-width: 1023px){
+	.form-row{
+		flex-direction: column;
+		align-items: flex-start;
+		margin-top:20px;
+		margin-bottom: 0;
+	}
+	
+	.profile-picture{
+		width: 100px;
+		height: 100px;
+	}
+	.form-input{
+		width: 100% !important;
+		padding: 0px !important;
+	}
+	.input-md{
+		max-width: 100%;
+	}
+	.form-input:last-child {
+		padding-left: 0px !important;
+		margin-top: 20px;
+	}
+	p.content-brand{
+		font-size: 20px;
+		line-height: 27px;
+	}
+	
 }
 </style>

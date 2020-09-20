@@ -2,18 +2,20 @@
 	<div class="dropdown-select">
 		<div class="trigger-container">
 			<div class="dropdown-select-trigger" >
-					<span :class="dropdownLabel" @click="onShowOptions">{{label}}</span>
-					<textlink v-if="hasCheckedItem==true" btnClass="textlink blue" @onClick="clearAll">Clear</textlink>
+				<span :class="dropdownLabel" @click="onShowOptions">{{label}}</span>
+				<div  v-show="hasCheckedItem">
+					<textlink btnClass="textlink blue" @onClick="clearAll">Clear</textlink>
+				</div>
 			</div>
 		</div>
 		<transition name="slide">
 			<div class="dropdown-options" v-show="showOptions">
-					<div class="options-caption">{{caption}}</div>
-					<div class="color-panel">
-						<div v-for="(item, idx) in items" :key="item.value" class="color-item">
-							<checkbox-color :label="item.text" :val="item.value" v-model="value[idx]"/>
-						</div>
+				<div class="options-caption">{{caption}}</div>
+				<div class="color-panel">
+					<div v-for="(item, idx) in items" :key="item.value" class="color-item">
+						<checkbox-color :label="item.text" :val="item.value" v-model="value[idx]"/>
 					</div>
+				</div>
 			</div>
 		</transition>
 	</div>

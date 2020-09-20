@@ -1,9 +1,9 @@
 <template>
 	<div class="custom_checkbox">
 		<label :class="labelClass">
-				<input type="checkbox"  :value="value" v-model="checkedOption" >
-				<span class="check_text"></span>
-				{{label}}
+			<input type="checkbox"  :value="value" v-model="checkedOption">
+			<span class="check_text"></span>
+			<span v-html="label"></span>
 		</label>
 	</div>
 </template>
@@ -13,25 +13,37 @@ export default {
 	name:'checkbox',
 	props:{
 		label:{
-				type: String,
-				default: 'label',
+			type: String,
+			default: 'label',
 		},
 		value:{
-				type: String,
-				default: ''
+			type: String,
+			default: ''
+		},
+		itemChecked: {
+			type: Boolean,
+			default: false
 		}
 	},
 	data(){
 		return{
-				checkedOption: false,
-				labelClass: ''
+			checkedOption: false,
+			labelClass: ''
 		}
+	},
+	created() {
+		this.checkedOption = this.itemChecked
 	},
 	watch:{
 		checkedOption:{
-				handler(){
-					// this.labelClass = (this.checkedOption)? "checked": "";
-				}
+			handler(){
+				// this.labelClass = (this.checkedOption)? "checked": "";
+			}
+		},
+		itemChecked: {
+			handler() {
+				this.checkedOption = this.itemChecked
+			}
 		}
 	}
 }

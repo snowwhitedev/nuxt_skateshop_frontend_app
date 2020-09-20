@@ -2,15 +2,15 @@
 <div class="carousel-container">
 	<transition-group name="fade" tag="div">
 		<div v-for="i in [currentIndex]" :key="i">
-		<div style="position: relative;" class="fadeback">
-			<img :src="currentImg" class="item" height="475" />
-			<div class="title">
-				<div class="title--1"><p>{{ titles[i] }}</p></div>
-				<div class="title--2"><p>{{ subTitles[i] }}</p></div>
-				<p class="title--3">{{ content[i] }}</p>
-				<a class="btn white_btn button_large carousel-btn">View Contest</a>
+			<div style="position: relative;" class="fadeback">
+				<img :src="currentImg" class="item" height="475" />
+				<div class="title">
+					<div class="title--1"><p>{{ titles[i] }}</p></div>
+					<div class="title--2"><p>{{ subTitles[i] }}</p></div>
+					<p class="title--3">{{ content[i] }}</p>
+					<a class="btn white_btn button_large carousel-btn">View Contest</a>
+				</div>
 			</div>
-		</div>
 		</div>
 	</transition-group>
 	<!-- <a class="cprev" @click="prev" href="#">&#10094;</a>

@@ -44,7 +44,7 @@ export default {
 	},
 	methods:{
 		closeLogin: function(){
-			this.$router.go(-1);
+			this.$router.push('/');
 		},
 		googleLogin(){
 			this.$auth.loginWith('google')

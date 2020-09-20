@@ -1,0 +1,141 @@
+@import "variable";
+.account-side-menu{
+	width: 372px;
+	padding-top: 40px;
+	padding-bottom: 30px;
+	border: 1px solid #F3F4F4;
+	box-sizing: border-box;
+	box-shadow: 0px 15px 40px rgba(45, 55, 72, 0.05);
+	border-radius: 15px;
+	height: fit-content;
+}
+.user-info{
+	margin-left: 40px;
+	margin-right: 40px;
+	padding-bottom: 20px;
+	border-bottom:  1px solid #F3F4F4;
+	display: flex;
+	flex-direction: column;
+}
+.user-info-top{
+	display: flex;
+	align-items: center;
+}
+.user-info-top img{
+	width: 60px;
+	height: 60p;
+	border-radius: 15px;
+}
+.user-profile{
+	margin-left: 20px;
+}
+.user-profile p.user-profile-top{
+	font-family: $font-family-primary;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 24px;
+	line-height: 33px;
+	color: #283441;
+}
+.user-profile p.user-profile-bottom{
+	font-family: $font-family-primary;
+	font-style: normal;
+	font-weight: 300;
+	font-size: 14px;
+	line-height: 180%;
+	letter-spacing: 0.01em;
+	color: #283441;
+}
+.user-info-bottom p{
+	font-family: $font-family-primary;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 10px;
+	line-height: 14px;
+	letter-spacing: 0.03em;
+	color: #707780;
+	margin-top: 10px;
+	display: flex;
+	flex-direction: row;
+}
+
+.icn-bg{
+	width: 30px;
+	height: 30px;
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.account-side-menu ul{
+	margin-top: 30px;
+}
+
+.account-side-menu ul li a{
+	display: flex;
+	align-items: center;
+	padding-left: 40px;
+	box-sizing: border-box;
+	margin-bottom: 20px;
+}
+.account-side-menu ul li:last-child a{
+	margin-bottom: 0px;
+}
+.account-side-menu ul li.large-bottom{
+	margin-bottom: 0px;
+}
+.account-side-menu ul li p{
+	margin-left: 20px;
+	font-family: $font-family-primary;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 19px;
+	letter-spacing: 0.02em;
+	color: #283441;
+}
+.horizontal-line{
+	width: 292px;
+	height: 1px;
+	background: #F3F4F4;
+	margin: 30px auto;
+}
+.account .icn-bg{
+	background: #D5F4F9;
+}
+.account-side-menu ul li.account a.nuxt-link-active{
+	border-left: 2px solid #2CC9E3;
+}
+.user .icn-bg{
+	background: #EBE4FE;
+}
+.account-side-menu ul li.user a.nuxt-link-active{
+	border-left: 2px solid #9978FB;
+}
+.contact .icn-bg{
+	background: #DAF8EA;
+}
+.account-side-menu ul li.contact a.nuxt-link-active{
+	border-left: 2px solid #44DC94;
+}
+.alarm .icn-bg{
+	background: #FCE9FE;
+}
+.account-side-menu ul li.alarm a.nuxt-link-active{
+	border-left:2px solid #EE91FB;
+}
+.order .icn-bg{
+	background: #D5EBFF;
+}
+.account-side-menu ul li.order a.nuxt-link-active{
+	border-left:2px solid #2E9BFF;
+}
+.shop .icn-bg{
+	background: #FFECDD;
+}
+.account-side-menu ul li.shop a.nuxt-link-active{
+	border-left:2px solid #FFA057;
+}
+.power .icn-bg{
+	background: #FDD9DB;
+}

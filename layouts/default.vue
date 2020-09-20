@@ -8,14 +8,17 @@
         @close="displaySidenav = false" />
       <nuxt/>
     </div>
-    <the-footer />
+    <div class="page-footer" v-show="showMobileFooter">
+      <the-footer />
+    </div>
 	</div>
 </template>
 
 <script>
-import NewsFlash from '../components/Notification/NewsFlash.vue';
-import TheHeader from '@/components/Navigation/TheHeader';
-import TheSidenav from '@/components/Navigation/TheSidenav';
+import { mapGetters } from 'vuex'
+import NewsFlash from '@/components/Notification/NewsFlash.vue';
+import TheHeader from '@/components/Navigation/TheHeader.vue';
+import TheSidenav from '@/components/Navigation/TheSideNav.vue';
 import TheFooter from '@/components/Footer/TheFooter.vue';
 
 export default {
@@ -32,7 +35,9 @@ export default {
    
   },
   created(){
-    console.log("[created default layout]");
+  },
+  computed: {
+    ...mapGetters('uiprops', ['showMobileFooter'])
   }
 }
 </script>

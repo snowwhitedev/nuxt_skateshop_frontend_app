@@ -10,20 +10,17 @@
                 </span>
             </div>
             <div class="carousel-blog-action">
-                <btn-prev @onClick="prevItem" :btnDisabled="prevDisabled"/>
+                <btn-prev @onClick="prevItem" :btnDisabled="!(currentFirst > 0)"/>
                 <div style="width:20px;"></div>
-                <btn-next @onClick="nextItem" :btnDisabled="nextDisabled"/>
+                <btn-next @onClick="nextItem" :btnDisabled="!(currentFirst < cardCnt - 1)"/>
             </div>
         </div>
         <div style="width: 100%; overflow:hidden;">
-        <div class="carousel-blog-container" :style="{'margin-left':containerLeftStr}">
-            <div class="blog-item"><card-blog designer="Designer1" :blogImg="require('~/assets/images/blog/blog-img-photo1.jpg')" /></div>
-            <div  class="blog-item"><card-blog designer="Designer2" :blogImg="require('~/assets/images/blog/blog-img-photo2.jpg')" /></div>
-            <div  class="blog-item"><card-blog designer="Designer3" :blogImg="require('~/assets/images/blog/blog-img-photo1.jpg')" /></div>
-            <div  class="blog-item"><card-blog designer="Designer4" :blogImg="require('~/assets/images/blog/blog-img-photo2.jpg')" /></div>
-            <div  class="blog-item"><card-blog designer="Designer5" :blogImg="require('~/assets/images/blog/blog-img-photo1.jpg')" /></div>
-            <div  class="blog-item" ><card-blog designer="Designer6" :blogImg="require('~/assets/images/blog/blog-img-photo2.jpg')" /></div>
-        </div>
+            <div class="carousel-blog-container" :style="{'margin-left':containerLeftStr}">
+                <div v-for="idx in cardCnt" :key="idx" class="blog-item">
+                    <card-blog designer="Designer1" :blogImg="require(`~/assets/images/blog/blog-img-photo${idx % 2 + 1}.jpg`)" />
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -36,18 +33,26 @@ export default {
             containerLeftStr: '0px',
             prevDisabled: true,
             nextDisabled: false,
+            cardCnt: 6,
+            currentFirst: 0
         }
     },
     methods: {
         prevItem(){
             this.containerLeft += 324; //this is the width of the card blog
             this.containerLeftStr = this.containerLeft + 'px';
-            this.nextDisabled = false;
+            this.currentFirst--;
+            // this.nextDisabled = false;
+
         },
         nextItem(){
             this.containerLeft -= 324; //this is the width of the card blog
             this.containerLeftStr = this.containerLeft + 'px';
-            this.prevDisabled = false;
+            this.currentFirst++;
+            // if(this.currentFirst === this.cardCnt - 1){
+            //     this.nextDisabled = true;
+            // }
+            // this.prevDisabled = false;
         }
     }
 }

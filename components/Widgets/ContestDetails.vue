@@ -72,8 +72,14 @@
 			<p class="item-text">
 				Please read our submission Terms and Conditions carefully before submitting your design. It’s very short, easy to read and important!
 			</p>
+			<p class="item-text mobile-toast" v-if="$device.isMobile">
+				Submitting designs on a mobile phone is not possible at this time. Please use a device with a larger screen to upload your design.
+			</p>
 		</div>
-		<nuxt-link :to="`/contests/1/upload`"><btn-text btnClass="btn primary lg" :btnDisabled="closed">Submit your design</btn-text></nuxt-link>
+		<nuxt-link :to="`/contests/1/upload`" v-if="!$device.isMobile">
+			<btn-text btnClass="btn primary lg" :btnDisabled="closed">Submit your design</btn-text>
+		</nuxt-link>
+		
 	</div>
 </template>
 
@@ -214,5 +220,19 @@ p.item-text{
 	line-height: 180%;
 	letter-spacing: 0.01em;
 	color: #283441;
+}
+.item-text.mobile-toast{
+	padding: 10px 15px;
+	background: #EAF5FF;
+	border: 1px solid #2E9BFF;
+	box-sizing: border-box;
+	box-shadow: 0px 10px 50px rgba(35, 48, 73, 0.05);
+	border-radius: 5px;
+	margin-top: 20px;
+}
+@media (max-width: 767px){
+	.detail-item{
+		margin-bottom: 30px;
+	}
 }
 </style>

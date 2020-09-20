@@ -1,10 +1,10 @@
 <template>
-	<div class="filter-rate">
+	<div class="filter-rate" v-click-outside="() => {showFilterPanel = false}">
 		<btn-filter @onClick="showFilterOptions"/>
-		<div style="position:relative;">
-			<div class="filter-rate-panel" v-if="showFilterPanel">
-				<div class="clear-all">
-					<textlink v-if="hasCheckedFilter" btnClass="textlink blue" @onClick="clearFilterAll" >Clear all filters</textlink>
+		<div class="filter-panel"  v-if="showFilterPanel">
+			<div class="filter-rate-panel">
+				<div class="clear-all" v-show="hasCheckedFilter">
+					<textlink  btnClass="textlink blue" @onClick="clearFilterAll" >Clear all filters</textlink>
 				</div>
 				<ul>
 					<li><textlink btnClass="textlink dark">Top rated designs</textlink></li>
@@ -20,11 +20,16 @@
 						@clearFilter=" () => {this.filteredColors = new Array();} "></dropdown-color></li>
 				</ul>
 			</div>
+			<div class="mobile-backdrop" @click="showFilterPanel = false"></div>
 		</div>
 	</div>
 </template>
 <script>
+import ClickOutside from 'vue-click-outside';
 export default {
+	directives:{
+		ClickOutside
+	},
 	data(){
 		return{
 			showFilterPanel: false,
@@ -82,19 +87,7 @@ export default {
 			_.fill( this.filteredColors, false);
 		}
 	},
-	// watch:{
-	// 	filteredDesigns:{
-	// 		handler(){
-	// 			console.log("filter watch");
-	// 			// if(_.findIndex(this.filteredDesigns, function(it){ return it == true} ) == -1){
-	// 			// 	this.hasCheckedFilter = false;
-	// 			// 	return;
-	// 			// } 
-	// 			// this.hasCheckedFilter = true;
-	// 		},
-	// 		deep: true
-	// 	}
-	// },
+
 	computed:{
 		hasCheckedFilter(){
 			if(_.findIndex(this.filteredDesigns, function(it){ return it == true} ) != -1){
@@ -120,17 +113,22 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~assets/css/variable.scss";
+.filter-rate{
+	position: relative;
+}
 .filter-rate-panel{
-	position: absolute;
-	top: 10px;
 	padding: 20px 30px;
 	background: #FFFFFF;
 	border: 1px solid #F3F4F4;
-	// border: 1px solid black;
 	box-shadow: 0px 15px 40px rgba(45, 55, 72, 0.05);
 	border-radius: 5px;
 	width: 274px;
-	z-index: 9999;
+	
+}
+.filter-panel{
+	position: absolute;
+	top: 50px;
+	z-index: 999;
 }
 .clear-all{
 	margin-bottom: 10px;
@@ -151,11 +149,21 @@ export default {
 	color: #283441;
 	padding-bottom: 15px;
 	cursor:pointer;
-
-	
 }
 .filter-rate-panel ul li:last-child{
 	padding-bottom: 0px;
+}
+@media (max-width: 767px){
+	.filter-panel {
+		width: 100vw;
+		left: -10px;
+		top: -280px;
+		display: flex;
+	}
+	.mobile-backdrop {
+		width: calc(100vw - 274px);
+		background-color: rgba(0, 0, 0, 0.2);
+	}
 }
 
 </style>

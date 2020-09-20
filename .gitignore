@@ -91,3 +91,8 @@ sw.*
 
 /assets/temp/
 
+# other
+credentials.yml
+
+#nuxtconfig
+nuxt.config.js

@@ -42,6 +42,7 @@ export default {
 }
 .upper-content{
 	display: flex;
+	flex-direction: row;
 }
 .upper-content p{
 	font-family: $font-family-primary;
@@ -85,5 +86,13 @@ export default {
 	line-height: 180%;
 	letter-spacing: 0.01em;
 	color: #283441;
+}
+@media (max-width: 767px){
+	.upper-content{
+		flex-direction: column;
+	}
+	.upper-content p{
+		margin-left: 0px;
+	}
 }
 </style>

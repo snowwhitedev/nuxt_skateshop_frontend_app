@@ -9,24 +9,29 @@
 				<p class="mark">4.5</p>
 				<p class="full-mark">out of 5</p>
 			</div>
-			<vote-rate :rateVal="4.5" starSize="lg" />
+			<vote-rate v-if="!$device.isMobile" :rateVal="4.5" starSize="lg" />
+			<vote-rate v-if="$device.isMobile" :rateVal="4.5" starSize="sm" />
+			
 			<div class="total-reviews">
 				Total reviews:&nbsp;{{ totalReviews }}
 			</div>
 		</div>
 		<div class="vote-rate-bars">
 			<ul>
-				<li v-for="(val, idx) in rateNum" :key="idx"><vote-rate-bar :rateVal="5-idx" :totalReviews="totalReviews" :reviews="val"></vote-rate-bar></li>
+				<li v-for="(val, idx) in rateNum" :key="idx">
+					<vote-rate-bar :rateVal="5-idx" :totalReviews="totalReviews" :reviews="val" />
+				</li>
 			</ul>
 		</div>
 		<div class="user-feedbacks mt-4">
 			<ul>
 				<li v-for="idx in 2" :key="idx">
-					<user-prod-feedback></user-prod-feedback>
+					<user-prod-feedback />
 				</li>
 			</ul>
 		</div>
 		<div class="post-review">
+			<p>Your review</p>
 			<div class="post-review-top">
 				<div class="user-avatar">
 					<img src="https://www.nretnil.com/avatar/swag_25k.jpg">
@@ -44,7 +49,10 @@
 						By publishing reviews you give deckend.com permission to use your review in our communication channels and use your personal details according to our
 						<textlink btnClass="textlink dark bold" fontSize="12px">privacy policy.</textlink> 
 					</p>
-					<btn-text btnClass="btn primary lg">Publish your review</btn-text>
+					<div class="bottom-btn">
+						<btn-text btnClass="btn primary lg">Publish your review</btn-text>
+					</div>
+					
 				</div>
 			</div>
 			
@@ -151,6 +159,15 @@ export default {
 	height: 60px;
 	border-radius: 15px;
 }
+.post-review p{
+	font-family: $font-family-primary;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 27px;
+	color: #283441;
+	margin-bottom: 10px;
+}
 .post-review-top{
 	display: flex;
 	align-items:center;
@@ -169,7 +186,7 @@ export default {
 	margin-top: 10px;
 }
 .post-review-bottom input{
-	max-width: 528px;
+	max-width: 100%;
 }
 .post-review-bottom textarea{
 	margin-top:20px;
@@ -189,5 +206,30 @@ export default {
 	letter-spacing: 0.03em;
 	color: #283441;
 	max-width: 332px;
+}
+
+@media (max-width: 767px){
+	.rate-mark p.mark{
+		font-weight: normal;
+		font-size: 48px;
+		line-height: 65px;
+	}
+	.rate-mark p.full-mark{
+		bottom: -2px;
+	}
+	.user-feedbacks ul li{
+		margin-bottom: 20px;
+	}
+	.bottom-action{
+		display: block;
+	}
+	.bottom-btn{
+		margin-top: 10px;
+		display: flex;
+		justify-content: flex-end;
+	}
+	.user-feedbacks{
+		margin-bottom: 20px;
+	}
 }
 </style>

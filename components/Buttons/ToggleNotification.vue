@@ -1,5 +1,5 @@
 <template>
-	<div class="toggle-msg">
+	<div class="toggle-msg" @click="$emit('onClick')">
 		<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M7.84204 17.4165C8.47729 18.5073 9.64696 19.2498 11 19.2498C12.353 19.2498 13.5226 18.5073 14.1579 17.4165H7.84204Z"
                 fill="#EE91FB"/>

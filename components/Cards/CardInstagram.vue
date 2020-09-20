@@ -45,6 +45,9 @@ export default {
 	opacity: 0.8;
 	padding: 40px 30px;
 }
+.instagram-card:hover {
+	cursor: pointer;
+}
 .instagram-remarks{
 	display: flex;
 	justify-content: center;

@@ -6,11 +6,11 @@
 				<shop-header />
 			</div>
 			<div class="shop-tabs">
-			 	<div class="tab">
-					<nuxt-link :to="`/shop/designer/${$route.params.id}/designs`"><a :class="designTabClass " @click="selectTab('designs')">Designs(5)</a></nuxt-link>
+			 	<div class="shop-tab">
+					<nuxt-link :to="`/shop/designer/${$route.params.id}/designs`"><span :class="designTabClass " @click="selectTab('designs')">Designs(5)</span></nuxt-link>
 				</div>
-				<div class="tab">
-					<nuxt-link :to="`/shop/designer/${$route.params.id}`"><a :class="deckTabClass" @click="selectTab('decks')">Decks(23)</a></nuxt-link>
+				<div class="shop-tab">
+					<nuxt-link :to="`/shop/designer/${$route.params.id}`"><span :class="deckTabClass" @click="selectTab('decks')">Decks(23)</span></nuxt-link>
 				</div>
 			</div>
 			<div class="production-container">
@@ -39,8 +39,8 @@ export default {
 				"text": "Browse designer skateshops",
 				"link": "/shop/designer"
 			},
-			designTabClass: "tab-link",
-			deckTabClass: "tab-link active"
+			designTabClass: "shoptab-link",
+			deckTabClass: "shoptab-link active"
 		}
 	},
 	created(){
@@ -50,13 +50,13 @@ export default {
 	methods:{
 		selectTab(tab){
 			if (tab === 'designs'){
-				this.designTabClass = "tab-link active";
-				this.deckTabClass = "tab-link";
+				this.designTabClass = "shoptab-link active";
+				this.deckTabClass = "shoptab-link";
 			}
 
 			if (tab === 'decks'){
-				this.deckTabClass= "tab-link active";
-				this.designTabClass = "tab-link";
+				this.deckTabClass= "shoptab-link active";
+				this.designTabClass = "shoptab-link";
 			}
 		}
 	}
@@ -89,16 +89,14 @@ export default {
 	padding-bottom: 20px;
 	display: flex;
 }
-.tab{
+.shop-tab{
 	margin-right: 40px;
 }
-.tab:last-child{
+.shop-tab:last-child{
 	margin-right: 0;
 }
-.tab{
 
-}
-.tab a.tab-link{
+.shop-tab a .shoptab-link{
 	font-family: $font-family-primary;
 	font-style: normal;
 	font-weight: normal;
@@ -108,10 +106,10 @@ export default {
 	color: #707780;
 	padding-bottom: 20px;
 }
-a.tab-link:hover{
+a .shoptab-link:hover{
 	border-bottom: 2px solid #357BFF;
 }
-a.tab-link.active{
+a .shoptab-link.active{
 	color: #283441;
 	border-bottom: 2px solid #357BFF;
 }

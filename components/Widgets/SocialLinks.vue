@@ -42,6 +42,9 @@ export default {
 
 <style lang="scss" scoped>
 @import "~assets/css/variable.scss";
+.social-links {
+	display: flex;
+}
 .social-links-header{
 	display: flex;
 	align-items: center;

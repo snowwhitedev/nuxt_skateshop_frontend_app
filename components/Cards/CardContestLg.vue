@@ -9,7 +9,8 @@
 </template>
 <style lang="scss" scoped>
 .card-contest-lg{
-    width: 844px;
+    width: 100%;
+    max-width: 844px;
     height: 360px;
     background: url('https://cdn.pixabay.com/photo/2015/12/12/15/24/amsterdam-1089646_1280.jpg');
     position: relative;

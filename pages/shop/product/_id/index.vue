@@ -3,6 +3,9 @@
 		<div class="design-detail">
 			<carousel-product />
 			<div class="design-content">
+				<p class="mobile-only-1023 sub-title">
+					Skateboard deck
+				</p>
 				<p class="design-title">
 					Hurley X Machina Gold 
 				</p>
@@ -14,11 +17,11 @@
 				<div class="product-details">
 					<p>Product details</p>
 					<ul>
-							<li>100% hard rock Canadian maple</li>
-							<li>Epoxy Resin superglue</li>
-							<li>7-ply</li>
-							<li>Popsicle shape</li>
-							<li>D-2 concave</li>
+						<li>100% hard rock Canadian maple</li>
+						<li>Epoxy Resin superglue</li>
+						<li>7-ply</li>
+						<li>Popsicle shape</li>
+						<li>D-2 concave</li>
 					</ul>
 					<p class="product-text">Sed ullamcorper tellus quis nisl malesuada, quis porta nulla commodo. Sed volutpat, ipsum sed ullamcorper. Isscd nisl malesua a nulla.</p>
 				</div>
@@ -30,49 +33,55 @@
 			</div>
 		</div>
 		<div class="comment-section">
-				<div class="comments">
-					<product-reviews />
-				</div>
-				<div class="contest">
-					<banner-in />
-					<div class="section">
-						<div class="card-section-header">
-								<div >
-									<div class="card-section-title">
-										Similar products you might like
-									</div>
-								</div>
-								<div class="card-section-action">
-									<btn-text btnClass="btn secondary sm">See more</btn-text> 
-								</div>
+			<div class="comments">
+				<product-reviews />
+			</div>
+			<div class="contest">
+				<banner-in />
+				<div class="section">
+					<div class="card-section-header">
+						<div >
+							<div class="card-section-title">
+								Similar products <span v-if="!$device.isMobile">you might like</span>
+							</div>
 						</div>
-						<div class="card-container">
-								<div class="card-item">
-									<card-product />
-								</div>
-								<div class="card-item">
-									<card-product />
-								</div>
+						<div class="card-section-action">
+							<btn-text btnClass="btn secondary sm">See more</btn-text> 
 						</div>
-						<div class="card-container">
-								<div class="card-item">
-									<card-product />
-								</div>
-								<div class="card-item">
-									<card-product />
-								</div>
+					</div>
+					<div class="card-container desktop-only-1024">
+						<div class="card-item">
+							<card-product :cardData="cardData" />
+						</div>
+						<div class="card-item">
+							<card-product :cardData="cardData" />
+						</div>
+					</div>
+					<div class="card-container desktop-only-1024">
+						<div class="card-item">
+							<card-product :cardData="cardData" />
+						</div>
+						<div class="card-item">
+							<card-product :cardData="cardData" />
+						</div>
+					</div>
+					<div class="card-container mobile-only-1023">
+						<div v-for="idx in 4" class="card-item" :key="idx">
+							<card-product :cardData="cardData" />
 						</div>
 					</div>
 				</div>
+			</div>
 		</div>
-		<div class="section">
+		<div class="section desktop-only-1024">
+			<div class=" section-footer">
 				<div class="card-section-header">
 					<div >
 						<div class="card-section-title">
-								Best sellers
+							Best sellers
 						</div>
 						<div class="card-section-description">
-								Sed ullamcorper tellus quis nisl malesuada, quis porta nulla commodo. Sed volutpat, ipsum
+							Sed ullamcorper tellus quis nisl malesuada, quis porta nulla commodo. Sed volutpat, ipsum
 						</div>
 					</div>
 					<div class="card-section-action">
@@ -81,9 +90,10 @@
 				</div>
 				<div class="card-container">
 					<div class="card-item" v-for="idx in 4" :key="idx">
-						<card-product/>
+						<card-product :cardData="cardData"/>
 					</div>
 				</div>
+			</div>
 		</div>
 	</div>
 </template>
@@ -100,7 +110,7 @@ import BannerIn from '@/components/Banners/BannerIn.vue';
 export default {
     name:"rate-design-detail",
     // middleware: ['auth'],
-    layout: '',
+    layout: 'layout_fullbanner',
     components:{
         BtnRatinglevel2, 
         CardPreorder,
@@ -113,12 +123,14 @@ export default {
     },
     data(){
         return{
-            tags:['skate', 'team', 'road trip', 'monster', 'funny', 'spacewalk', 'saturn', 'planet', 'colorful', 'rainbow', 'unicorn'],
+			tags:['skate', 'team', 'road trip', 'monster', 'funny', 'spacewalk', 'saturn', 'planet', 'colorful', 'rainbow', 'unicorn'],
+			 cardData: {id: 1}
         }
     },
     created(){
         // console.log(this.$route.params);
-        
+		// console.log("[isMobile]", this.$device.isMobile);
+       
     },
     methods:{
         showPopDesignOverlay(designId){
@@ -137,6 +149,10 @@ export default {
 @import "~assets/css/variable.scss";
 .design-detail{
     display: flex;
+	flex-direction: row;
+	max-width: 1296px;
+	padding: 0 10px;
+	margin: 0 auto
 }
 .design-image{
     width: 736px;
@@ -221,19 +237,16 @@ export default {
 .social-links-section{
 	margin-top: 20px;
 }
-
 .comment-section{
     display: grid;
     grid-template-columns:50% 50%;
-    // grid-column-gap: 20px;
+	margin: 0 auto;
     margin-top: 60px;
+	padding: 0 10px;
+	max-width: 1296px;
 }
 .comments{
     padding-right: 30px;
-}
-
-.contest{
-    padding-left: 10px;
 }
 .contest p{
     font-family: $font-family-primary;
@@ -244,7 +257,12 @@ export default {
     color: #283441;
     margin-bottom: 20px;
 }
-
+.section-footer{
+	padding-left: 10px;
+	padding-right: 10px;
+	max-width: 1296px;
+	margin: 0 auto;
+}
 .card-section-header{
 	display: flex;
 	align-items: flex-end;
@@ -274,15 +292,72 @@ export default {
 }
 .card-container{
 	display: flex;
-	// overflow-x:auto;
 	overflow:auto;
 	padding: 10px 0;
-    // padding: 1px 2px;
 }
 .card-item{
 	margin-right: 20px;
 }
 .card-item:last-child{
     margin-right: 0;;
+}
+.mobile-only-1023{
+	display: none;
+}
+@media (max-width: 1023px){
+	.design-detail{
+		flex-direction: column;
+	}
+	.design-content{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	.comment-section{
+		display: block;
+		margin-top: 30px;
+	}
+	.comments{
+		padding-right: 0px;
+		margin-bottom: 40px;
+	}
+	.desktop-only-1024{
+		display: none;
+	}
+	.mobile-only-1023{
+		display: flex;
+	}
+	.sub-title {
+		display: block;
+		font-family: $font-family-primary;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 12px;
+		line-height: 16px;
+		letter-spacing: 0.03em;
+		color: #707780;
+		margin-bottom: 5px;
+	}
+}
+@media (max-width: 767px){
+	.design-detail{
+		padding: 0;
+	}
+	.design-content{
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	.design-title{
+		font-size: 24px;
+		line-height: 33px;
+	}
+	.tags{
+		margin-bottom: 0;
+	}
+	.card-item{
+		margin-right: 10px;
+	}
+	.rate-design-detail{
+		margin-bottom: 50px !important;
+	}
 }
 </style>

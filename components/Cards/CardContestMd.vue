@@ -14,7 +14,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 .card-contest-md{
-    width: 412px;
+    width: 100%;
+    max-width: 412px;
     height: 360px;
     background: url('https://cdn.pixabay.com/photo/2015/05/15/14/27/eiffel-tower-768501_1280.jpg');
     position: relative;

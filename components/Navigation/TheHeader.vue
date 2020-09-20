@@ -20,30 +20,32 @@
 		</div>
 		<input-search class="input-normal header-action nav-header-search" placeHolder="Search designs, decks, shops or designers"/>
 		<shopping-cart  class="header-action"/>
-		<toggle-notification v-if="authLoggedIn" class="header-action"/>
-		<toggle-msg v-if="authLoggedIn" class="header-action nav-header-message"/>
-		<account-menu v-if="authLoggedIn" class="header-action"/>
-		<nuxt-link v-if="!authLoggedIn" to="/login"><btn-text class="header-action" btnClass="btn primary sm">Login</btn-text></nuxt-link>
+		<notification-panel v-if="$auth.loggedIn" class="header-action"/>
+		<toggle-msg v-if="$auth.loggedIn" class="header-action nav-header-message"/>
+		<account-menu v-if="$auth.loggedIn" class="header-action"/>
+		<nuxt-link v-if="!$auth.loggedIn" to="/login">
+			<btn-text class="header-action" btnClass="btn primary sm">Login</btn-text>
+		</nuxt-link>
 	</header>
 	<input-search class="nav-header-mobile-search" placeHolder="Search designs, decks, shops or designers"/>
 </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import Logo from "@/components/Navigation/Logo.vue";
 import TheSideNavToggle from "@/components/Navigation/TheSideNavToggle";
 import ShoppingCart from "@/components/Navigation/ShoppingCart.vue";
 import AccountMenu from '@/components/Navigation/AccountMenu.vue';
-
-import { mapState } from 'vuex';
-
+import NotificationPanel from '@/components/Navigation/NotificationPanel.vue';
 export default {
   name: "TheHeader",
 	components: {
 		TheSideNavToggle,
 		Logo,
 		ShoppingCart,
-		AccountMenu
+		AccountMenu,
+		NotificationPanel
 	},
 	data(){
 		return{
@@ -53,6 +55,8 @@ export default {
 		
 	},
 	created(){
+		const isMobile = this.$device.isMobile;
+		this.$store.dispatch('uiprops/checkMobile', isMobile);
 	},
 	computed:{
 		authLoggedIn(){
@@ -62,7 +66,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 @import "~assets/css/variable.scss";
 .header-container {
   	margin-top:20px;

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-if="authLoggedIn" class="btn-shopping-cart auth" @click="$emit('onClick')">
+        <div v-if="$auth.loggedIn" class="btn-shopping-cart auth" @click="$emit('onClick')">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5.50005 1.8335C5.92721 1.8335 6.29663 2.12866 6.3938 2.54391L7.28663 6.41683H19.25C19.5333 6.41683 19.7991 6.547 19.9724 6.76975C20.1456 6.99158 20.208 7.28308 20.1401 7.55625L18.3068 14.8896C18.2041 15.2975 17.8375 15.5835 17.4167 15.5835H8.25005C7.82288 15.5835 7.45346 15.2892 7.3563 14.8731L4.7713 3.66683H1.83338V1.8335H5.50005ZM8.9788 13.7502H16.7008L18.0758 8.25016H7.71013L8.9788 13.7502Z" 
                     fill="#357BFF"/>
@@ -50,7 +50,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~assets/css/variable.scss";
-
 .btn-shopping-cart{
     position: relative;
     width:40px;

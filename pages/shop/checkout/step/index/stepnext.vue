@@ -6,18 +6,18 @@
 			</div>
 			<div class="horizontal-line mt-2"></div>
             <div class="section-body mt-3 pr-2">
-                <ul>
-                    <li>Leon Steneker</li>
-                    <li>Westerworld 42</li>
-                    <li>42 9632 EJ</li>
-                    <li>The Netherlands</li>
-                </ul>
-                <ul>
-                    <li>Leon Steneker</li>
-                    <li>Westerworld 42</li>
-                    <li>42 9632 EJ</li>
-                    <li>The Netherlands</li>
-                </ul>
+                <div class="person-info">
+                    <ul>
+                        <li>Leon Steneker</li>
+                        <li>Westerworld 42</li>
+                        <li>42 9632 EJ</li>
+                        <li>The Netherlands</li>
+                    </ul>
+                    <ul>
+                        <li>+31618273645</li>
+                        <li>leonsteneker@gmail.com</li>
+                    </ul>
+                </div>
                 <ul>
                     <li><btn-text btnClass="btn secondary sm">Edit</btn-text></li>
                 </ul>
@@ -123,8 +123,8 @@ export default {
 .horizontal-line{
 	width: 100%;
 	height: 1px;
-	// background: #E7E8EA;
-	background: black;
+	background: #E7E8EA;
+	// background: black;
 }
 
 .form-final-action{
@@ -168,6 +168,7 @@ export default {
     text-align: right;
     color: #283441;
     text-transform: uppercase;
+    min-width: fit-content;
 }
 .shipping-option{
     padding: 30px 20px;
@@ -182,5 +183,71 @@ export default {
 }
 .disabled .form-final-action .privacy-text{
     color: #9399A0;
+}
+.person-info{
+    display: flex;
+    flex-direction: row;
+}
+.person-info ul:first-child{
+    margin-right: 60px;
+}
+
+@media (max-width: 767px){
+    .section-title{
+        font-size: 20px;
+        line-height: 27px; 
+    }
+    .form-row{
+        flex-direction: column;
+    }
+    
+    .form-col{
+        width: 100%;
+        margin-top: 20px;
+    }
+    .input-lg{
+        max-width: 100%;
+    }
+    .form-action{
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+    .section-title.disabled{
+        margin-top: 20px;
+    }
+    .form-final-action{
+        display: block;
+        margin-top: 20px;
+    }
+    .form-final-action button{
+        float: right;
+        margin-top: 10px;
+    }
+    .person-info{
+        flex-direction: column;
+    }
+    .person-info ul:first-child{
+        margin-right: 0px;
+    }
+    .mt-3,
+    .mt-5
+    {
+        margin-top: 0;
+    }
+    .pr-2{
+        padding-right: 0;
+    }
+    .step-section{
+        margin-top: 40px;
+    }
+    .step-section:first-child{
+        margin-top: 0;
+    }
+    .section-body{
+        margin-top: 20px;
+    }
+    .shipping-option{
+        padding: 20px 0 20px 10px;
+    }
 }
 </style>

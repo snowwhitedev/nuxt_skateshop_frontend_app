@@ -1,19 +1,11 @@
 <template>
 	<div class="toggle-account" style="background-image:" @click="$emit('onClick')">
-		<img class="design-image" :src="authUserImg" alt="User">
+		<img class="design-image" :src="$auth.user.picture" alt="User">
 	</div>
 </template>
 
 <script>
 export default {
-	computed:{
-		authUserImg(){
-			return this.$auth.$storage.getUniversal("authUserImg");
-		},
-		authUserName(){
-			return this.$auth.$storage.getUniversal("authUserName");
-		}
-	}
 }
 </script>
 
@@ -38,5 +30,4 @@ export default {
 	height: 40px;
 	border-radius: 15px;
 }
-
 </style>

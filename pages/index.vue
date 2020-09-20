@@ -118,15 +118,15 @@
 			<div class="section">
 				<p class="instagram-section-title">
 					Follow us on Instagram
+					<svg width="22" height="11" viewBox="0 0 22 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M17.2138 0.71967C16.9209 0.426777 16.446 0.426777 16.1531 0.71967C15.8602 1.01256 15.8602 1.48744 16.1531 1.78033L17.2138 0.71967ZM21 5.56655L21.5303 6.09688C21.8232 5.80398 21.8232 5.32911 21.5303 5.03622L21 5.56655ZM16.1531 9.35276C15.8602 9.64566 15.8602 10.1205 16.1531 10.4134C16.446 10.7063 16.9209 10.7063 17.2138 10.4134L16.1531 9.35276ZM1 4.81655C0.585786 4.81655 0.25 5.15233 0.25 5.56655C0.25 5.98076 0.585786 6.31655 1 6.31655V4.81655ZM16.1531 1.78033L20.4697 6.09688L21.5303 5.03622L17.2138 0.71967L16.1531 1.78033ZM20.4697 5.03622L16.1531 9.35276L17.2138 10.4134L21.5303 6.09688L20.4697 5.03622ZM21 4.81655H1V6.31655H21V4.81655Z" fill="#101D2C"/>
+					</svg>
+
 				</p>
 				<div class="instagram-cards">
-					<card-instagram class="card-item" />
-					<card-instagram class="card-item" />
-					<card-instagram class="card-item" />
-					<card-instagram class="card-item" />
-					<card-instagram class="card-item" />
+					<card-instagram />
+					<card-instagram />
 				</div>
-				
 			</div>
 		</div>
 	</div>
@@ -149,7 +149,6 @@ export default {
 		CarouselBlog
 	},
 	created(){
-		
 	},
 	data(){
 		return {
@@ -195,7 +194,6 @@ export default {
 .popular-section{
 	width: 100%;
 	background: #F8F8F8;
-	// background: #283441;
 	border-top-left-radius: 150px;
 	margin-top: 60px;
 }
@@ -256,6 +254,11 @@ export default {
 	text-align: center;
 	color: #283441;
 	margin-bottom: 30px;
+	display: flex;
+	align-items: center;justify-content: center;
+}
+.instagram-section-title svg {
+	margin-left: 5px;
 }
 .instagram-cards{
 	display: flex;
@@ -263,6 +266,7 @@ export default {
 	justify-content: space-between;
 	overflow:auto;
 }
+
 @media (max-width: 767px){
 	.card-section-title{
 		font-size: 20px;
@@ -295,6 +299,9 @@ export default {
 		font-size: 20px;
 		line-height: 27px;
 		margin-bottom: 10px;
+	}
+	.popular-section {
+		background: none;
 	}
 }
 </style>

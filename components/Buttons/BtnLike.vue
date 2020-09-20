@@ -14,7 +14,7 @@
 button{
     border:none;
     background: none;
-
+    padding: 0;
 }
 .btn-like:hover{
     cursor: pointer;

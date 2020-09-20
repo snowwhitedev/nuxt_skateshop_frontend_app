@@ -10,7 +10,14 @@
 			</div>
 		</div>
 		<div class="content-row">
-			<div class="graph-section">this is graph section</div>
+			<div class="flow-container">
+				<div class="graph-section">
+					<p>Sales</p>
+					<div class="graph-container" id="chartcontainter">
+						<canvas id="sales-chart" style="padding: 0 20px 20px 10px; width: 520px; height: 210px;"></canvas>
+					</div>
+				</div>
+			</div>
 			<div class="sales-data">
 				<p class="section-title">
 					Sales per product
@@ -29,6 +36,7 @@
 
 <script>
 import CardStatus from '@/components/Cards/CardStatus.vue';
+import Chart from 'chart.js';
 export default {
 	components:{
 		CardStatus
@@ -48,10 +56,10 @@ export default {
 				{ "value": "april", text: "April" }
 			],
 			shopStatus:[
-				{label:'total earnings', content: '€ 120,00', intend: 1, text: ' 23,0% increased' },
-				{label:'total orders', content: '12', intend: -1, text: '2.0% decreased' },
-				{label:'average order sale', content: '€ 62,13', intend: 1, text: '1.7% increased' },
-				{label:'outpayment', content: '3 days', intend: 0, text: 'Until next payment' }
+				{label:'Total earnings', content: '€ 120,00', intend: 1, text: ' 23,0% increased' },
+				{label:'Total orders', content: '12', intend: -1, text: '2.0% decreased' },
+				{label:'Average order sale', content: '€ 62,13', intend: 1, text: '1.7% increased' },
+				{label:'Outpayment', content: '3 days', intend: 0, text: 'Until next payment' }
 			],
 			salesData:[
 				{ product:'Hurley X Machina Gold', value: 4},
@@ -61,6 +69,76 @@ export default {
 				{ product:'Redbull Masters', value: 1},
 				{ product:'Heart of Gold', value: 1}
 			]
+		}
+	},
+	mounted(){
+		const dailyLabel = [];
+		const dailyValue = [];
+		for(let i =1; i<=31; i++){
+			dailyLabel.push(i);
+			dailyValue.push(Math.floor(Math.random() * 3));
+		}
+		const salesChartData = {
+			type: 'bar',
+			data: {
+				datasets: [{
+					label: "Sales",
+					backgroundColor: "#357BFF",
+					data: [0,1,2,0,0],
+					// barThickness: 7,
+					categoryPercentage: 1,
+					barPercentage: 0.6,
+				}]
+			},
+			options: {
+				legend: { display: false },
+				title: {
+					display: false,
+				},
+				
+				scales: {
+					xAxes: [{
+						display: true,
+						labels: dailyLabel,
+						gridLines:{
+							display: false
+						},
+						ticks:{
+							fontFamily: "Nunito",
+							fontSize : 8,
+							fontColor:  "#707780",
+							padding: 0,
+							tickMarkLength: 8
+						}
+
+					}],
+					yAxes: [{
+						display: true,
+						gridLines:{
+							display: false
+						},
+						ticks:{
+							callback: function(value, index, values) {
+								const intVal = parseInt(value);
+								return (intVal === value)? intVal : '';  
+							}
+						}
+					}]
+				}
+			}
+		}
+		this.createSalesChart('sales-chart', salesChartData);
+	},
+	methods:{
+		createSalesChart(chartId, chartData){
+			if(process.client) {
+				const ctx = document.getElementById(chartId);
+				const salesChart = new Chart(ctx, {
+					type: chartData.type,
+					data: chartData.data,
+					options: chartData.options,
+				});
+			}
 		}
 	}
 }
@@ -80,6 +158,7 @@ export default {
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
+	flex-wrap: wrap;
 }
 .status-item{
 	width: calc(25% - 15px);
@@ -87,11 +166,17 @@ export default {
 .graph-section{
 	background: #FFFFFF;
 	border: 1px solid #F3F4F4;
-	// border: 1px solid black;
 	box-shadow: 0px 15px 40px rgba(45, 55, 72, 0.05);
 	border-radius: 5px;
 	width: 520px;
+	// width: 600px;
 	height: 262px;
+}
+.graph-section p{
+	padding: 20px 20px 10px 20px;
+	font-family: $font-family-primary;
+	font-size: 16px;
+	font-weight: bold;
 }
 .sales-data{
 	background: #FFFFFF;
@@ -100,6 +185,7 @@ export default {
 	border-radius: 5px;
 	width: 304px;
 	padding: 20px;
+	margin-bottom: 50px;
 }
 .sales-data .section-title{
 	font-family: $font-family-primary;
@@ -133,5 +219,25 @@ export default {
 }
 .sales-data ul li p.product-value{
 	font-weight: 600;
+}
+
+@media (max-width: 1297px){
+	.status-item{
+		width: calc(50% - 10px);
+		margin-bottom: 10px;
+	}
+	.flow-container{
+		width: 520px;
+		overflow-x: auto;
+		overflow-y: hidden;
+	}
+	.sales-data{
+		margin-top: 30px;
+	}
+}
+@media (max-width: 767px){
+	.status-item{
+		width: calc(50% - 5px);
+	}
 }
 </style>

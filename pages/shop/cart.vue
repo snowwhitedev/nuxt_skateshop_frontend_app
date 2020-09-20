@@ -1,9 +1,9 @@
 <template>
 	<div class="">
-		<btn-textlink btnClass="btn textlink thin" leftIcon="arrow">Back to my products</btn-textlink> 
+		<btn-textlink btnClass="btn textlink thin" leftIcon="arrow" @onClick="()=>{$router.go(-1)}">Continue shopping</btn-textlink> 
 		<div class="shopping-cart">
 			<div class="cart-col-first">
-				<p class="section-title" style="margin-top: 10px;">
+				<p class="section-title first">
 					Shopping cart
 				</p>
 				<div class="horizontal-line"></div>
@@ -56,14 +56,15 @@
 				</div>
 			</div>
 		</div>
-		<btn-textlink btnClass="btn textlink thin" leftIcon="arrow" class="bottom-back">Back to my products</btn-textlink>
-		<div class="section">
+		<btn-textlink btnClass="btn textlink thin" leftIcon="arrow" class="bottom-back" v-if="!$device.isMobile">Continue shopping</btn-textlink>
+		<div class="section bottom">
 			<div class="card-section-header">
 				<div >
 					<div class="card-section-title">
-						Best sellers
+						<span v-if="!$device.isMobile">Best sellers</span>
+						<span v-else>Similar products</span>
 					</div>
-					<div class="card-section-description">
+					<div class="card-section-description" v-if="!$device.isMobile">
 						Sed ullamcorper tellus quis nisl malesuada, quis porta nulla commodo. Sed volutpat, ipsum
 					</div>
 				</div>
@@ -72,10 +73,10 @@
 				</div>
 			</div>
 			<div class="card-container">
-				<div class="card-item"><card-product /></div>
-				<div class="card-item"><card-product /></div>
-				<div class="card-item"><card-product /></div>
-				<div class="card-item"><card-product /></div>
+				<div class="card-item"><card-product :cardData="cardData" /></div>
+				<div class="card-item"><card-product :cardData="cardData" /></div>
+				<div class="card-item"><card-product :cardData="cardData" /></div>
+				<div class="card-item"><card-product :cardData="cardData" /></div>
 			</div>
 		</div>
 	</div>
@@ -92,7 +93,8 @@ export default {
 			],
 			countries: [
 				"Netherlands", "United States", "United Kingdom"
-			]
+			],
+			cardData: {id: 1}
 		}
 	},
 	methods:{
@@ -108,6 +110,7 @@ export default {
 .shopping-cart{
 	display: flex;
 	justify-content: space-between;
+	flex-direction: row;
 }
 .cart-col-first{
 	width: 884px;
@@ -125,9 +128,14 @@ export default {
 	border-radius: 5px;
 	padding: 30px;
 	padding-top: 10px;
+	min-width: 320px;
+	height: fit-content;
 }
 .btn-remove:hover{
 	cursor: pointer;
+}
+.section-title.first{
+	margin-top: 10px;
 }
 .section-title{
 	font-family: $font-family-primary;
@@ -208,5 +216,38 @@ ul li{
 }
 .card-item{
 	margin-right: 20px;
+}
+.bottom-back{
+	margin-top: 40px;
+}
+.section.bottom{
+	margin-bottom: 60px;
+}
+@media (max-width: 1023px){
+	.section-title{
+		font-size: 20px;
+		line-height: 27px;
+	}
+	.btn-remove{
+		display: none;
+	}
+	
+}
+@media (max-width: 767px){
+	.shopping-cart{
+		flex-direction: column;
+	}
+	.cart-col-first{
+		width: 100%;
+	}
+	.col-second{
+		margin-top: 30px;
+		width: 100%;
+		min-width: 100%;
+		margin: 30px auto 0px;
+	}
+	.section.bottom{
+		margin-bottom: 50px;
+	}
 }
 </style>

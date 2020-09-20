@@ -2,7 +2,7 @@
   <div class="account-shop-settings">
 	<div class="banner-image-setting">
 		<img src="https://cdn.pixabay.com/photo/2015/05/15/14/27/eiffel-tower-768501_1280.jpg">
-		<div class="file-wrapper">
+		<div class="file-wrapper banner">
 			<input type="file" name="file-input" @change="handleFileInput" > 
 			<svg class="icn-camera" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<rect width="40" height="40" rx="10" fill="#357BFF"/>
@@ -33,7 +33,10 @@
 				<textarea class="input-field"></textarea>
 			</div>
 			<div class="form-input url">
-				<label>Your skateshop URL&nbsp;<small>(A way to make it easy for people to find you)</small></label>
+				<label>Your skateshop URL&nbsp;
+					<small v-if="!$device.isMobile">(A way to make it easy for people to find you)</small>
+					<small v-else>(To make it easy to find you)</small>
+				</label>
 				<div class="shop-url">
 					<p>https://www.deckend.com/s/&nbsp;</p>
 					<input class="input-md" />
@@ -70,6 +73,9 @@ export default {
 
 <style lang="scss" scoped>
 @import "~assets/css/variable.scss";
+.account-shop-settings{
+	margin-bottom: 60px;
+}
 .banner-image-setting{
 	width: 100%;
 	height: 150px;
@@ -111,6 +117,7 @@ export default {
 .shop-setting{
 	margin-top: 40px;
 	display: flex;
+	flex-direction: row;
 }
 .shop-logo{
 	width: 150px;
@@ -169,5 +176,38 @@ label small{
 	display: flex;
 	justify-content: flex-end;
 	margin-top: 20px;
+}
+
+@media (max-width: 1295px){
+	.file-wrapper.banner{
+		right: 8px;
+	}
+}
+
+@media (max-width: 1023px){
+	.account-shop-settings{
+		margin-bottom: 50px;
+	}
+	.shop-setting{
+		margin-top: 30px;
+		flex-direction: column;
+	}
+	.setting-detail{
+		margin-top: 30px;
+	}
+	.form-input.url{
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+	.shop-logo{
+		width: 100px;
+		min-width: 100px;
+		height: 100px;
+	}
+	.shop-logo img{
+		width: 100px;
+		min-width: 100px;
+		height: 100px;
+	}
 }
 </style>

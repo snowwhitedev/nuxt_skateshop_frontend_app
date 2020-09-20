@@ -1,35 +1,35 @@
 <template>
-    <button :class="btnClass" @click="$emit('onClick')" :style="`font-size:${fontSize};`">
-        <slot></slot>
-    </button>
+  <button :class="btnClass" @click="$emit('onClick')" :style="`font-size:${fontSize};`">
+    <slot></slot>
+  </button>
 </template>
 <script>
 export default {
-    props: {
-        btnClass:{
-            type: String,
-            default: 'textlink blue bold'
-        },
-        fontSize:{
-            type: String,
-            default: '14px'
-        }
+  props: {
+    btnClass:{
+      type: String,
+      default: 'textlink blue bold'
+    },
+    fontSize:{
+      type: String,
+      default: '14px'
     }
+  }
 }
 </script>
 <style lang="scss" scoped>
 @import "~assets/css/variable.scss";
 .textlink{
-    font-family: $font-family-primary;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 19px;
-    letter-spacing: 0.02em;
-    border:none;
-    background: none;
-    cursor: pointer;
-    padding:0;
+  font-family: $font-family-primary;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: 0.02em;
+  border:none;
+  background: none;
+  cursor: pointer;
+  padding:0;
 }
 .textlink.bold{
     font-weight: bold;

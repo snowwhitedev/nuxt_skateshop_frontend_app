@@ -1,7 +1,7 @@
 <template>
 	<div class="checkout-form">
 		<p class="checkout-title">
-			Checkout
+			Checkout&nbsp;<span class="mobile-only-1023 checkout-summary">(2 items, €105,50)</span>
 		</p>
 		<div class="main-container">
 			<div class="checkout-first-col">
@@ -64,9 +64,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "~assets/css/variable.scss";
-.checkout-form{
-	// border: 1px solid black;
-}
 .checkout-title{
 	font-family: $font-family-primary;
 	font-style: normal;
@@ -75,6 +72,8 @@ export default {
 	line-height: 46px;
 	color: #283441;
 	margin-bottom: 20px;
+	display: flex;
+	align-items: center;
 }
 .main-container{
 	display: flex;
@@ -142,4 +141,33 @@ ul.cart-summary li:last-child{
 	font-weight: 300;
 	font-size: 80%;
 }
+.mobile-only-1023{
+	display: none;
+}
+@media (max-width: 1023px){
+	.checkout-second-col{
+		display: none;
+	}
+	.checkout-first-col{
+		max-width: 100%;
+	}
+	.mobile-only-1023{
+		display: block;
+	}
+	.checkout-summary{
+		font-size: 24px;
+		line-height: 33px;
+	}
+}
+@media (max-width: 767px){
+	.checkout-title{
+		font-size: 20px;
+		line-height: 27px;
+	}
+	.checkout-summary{
+		font-size: 14px;
+		line-height: 19px;
+	}
+}
+
 </style>

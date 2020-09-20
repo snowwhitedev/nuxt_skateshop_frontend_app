@@ -32,12 +32,41 @@
 				</div>
 			</div>
 			<div class="form-row">
-				<div class="form-input" style="padding-left: 0">
+				<div class="form-input" style="padding-left: 0; padding-right: 10px;">
 					<label>Biography</label>
 					<textarea placeholder="Tell us a little bit about yourself"></textarea>
 				</div>
 
 			</div>
+			<div class="horizontal-line"></div>
+			<div class="social-accounts">
+				<label>Social accounts</label>
+				<div class="form-row first">
+					<div class="form-input">
+						<social-account socialType="self" link="http://www.your-website.com" :isActive="false"></social-account>
+					</div>
+					<div class="form-input">
+						<social-account socialType="self" link="https://www.instagram.com/your-account" :isActive="true"></social-account>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-input">
+						<social-account socialType="self" link="http://www.your-website.com" :isActive="false"></social-account>
+					</div>
+					<div class="form-input">
+						<social-account socialType="self" link="https://www.instagram.com/your-account" :isActive="true"></social-account>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-input">
+						<social-account socialType="self" link="http://www.your-website.com" :isActive="false"></social-account>
+					</div>
+					<div class="form-input">
+						<social-account socialType="self" link="https://www.instagram.com/your-account" :isActive="true"></social-account>
+					</div>
+				</div>
+			</div>
+			
 			<div class="horizontal-line sep-last" style=""></div>
 			<div class="form-action">
 				<btn-text btnClass="btn primary lg">Save information</btn-text>
@@ -101,6 +130,12 @@ p.content-brand{
 	width: 100%;
 	margin-top: 30px;
 }
+.social-accounts .form-row{
+	margin-top: 20px;
+}
+.social-accounts .form-row.first{
+	margin-top: 10px;
+}
 .form-input{
 	width: 50%;
 	padding-right: 10px;
@@ -127,15 +162,16 @@ p.content-brand{
 	align-items: center;
 }
 .sel-date{
-	width: 100px;
-	margin-right: 10px;
+	width: 25%;
+	padding-right: 5px;
 }
 .sel-month{
-	width:185px;
-	margin-right: 10px;
+	width: 50%;
+	padding: 0 5px;
 }
 .sel-year{
-	width: 106px;
+	width: 25%;
+	padding-left: 5px;
 }
 .form-row textarea{
 	margin-top: 10px;
@@ -144,5 +180,36 @@ p.content-brand{
 	display: flex;
 	justify-content: flex-end;
 	margin-top: 20px;
+	margin-bottom: 50px;
+}
+
+@media (max-width: 1023px){
+	.form-row{
+		flex-direction: column;
+		align-items: flex-start;
+		margin-top:20px;
+		margin-bottom: 0;
+	}
+	
+	.profile-picture{
+		width: 100px;
+		height: 100px;
+	}
+	.form-input{
+		width: 100% !important;
+		padding: 0px !important;
+	}
+	.input-md{
+		max-width: 100%;
+	}
+	.form-input:last-child {
+		padding-left: 0px !important;
+		margin-top: 20px;
+	}
+	p.content-brand{
+		font-size: 20px;
+		line-height: 27px;
+	}
+	
 }
 </style>

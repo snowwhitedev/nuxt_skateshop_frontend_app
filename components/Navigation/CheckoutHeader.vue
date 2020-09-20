@@ -15,7 +15,6 @@
 		<div class="spacer"></div>
 	
 		<shopping-cart  class="header-action"/>
-    
   </header>
 </div>
 </template>
@@ -53,7 +52,6 @@ export default {
 @import "~assets/css/variable.scss";
 .header-container {
   margin-top:20px;
-  height: 82px;
 }
 .the-header {
   width: 100%;
@@ -64,6 +62,7 @@ export default {
   background-color: white;
   z-index: 100;
   box-sizing: border-box;
+  box-shadow: 0px 15px 40px rgba(45, 55, 72, 0.05);
 }
 .spacer {
   flex: 1;
@@ -74,6 +73,7 @@ export default {
 .badge-checkout{
   display: flex;
   align-items: center;
+  margin-left: 20px;
 }
 .badge-text p{
   font-family: $font-family-primary;

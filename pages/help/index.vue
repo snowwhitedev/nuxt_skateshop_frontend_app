@@ -110,4 +110,13 @@ export default {
 	display: flex;
 	justify-content: center;
 }
+
+@media (max-width: 767px){
+	.help-list-container{
+		padding-bottom: 70px;
+	}
+	.contact-btn{
+		margin-bottom: 50px;
+	}
+}
 </style>

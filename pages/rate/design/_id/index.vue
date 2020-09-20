@@ -1,89 +1,99 @@
 <template>
 	<div>
 		<div class="page-section">
-			<div class="rate-design-detail">
-				<div class="design-detail">
-					<img class="design-image" src="https://cdn.dribbble.com/users/2546342/screenshots/5208110/skateboards_mockup_dribbble__size_2.jpg">
-					<div class="design-content">
-						<p class="design-title">
-							Hurley X Machina Gold 
-						</p>
-						<p class="design-text">
-							Sed ullamcorper tellus quis nisl malesuada, quis porta nulla commodo. Sed volutpat, ipsum sed ullamcorper. Isscd nisl malesua Isscd nisl malesuada, quis porta nulla.
-						</p>
-						<div class="designer">
-							<div class="designer-info">
-								<img class="designer-img" src="https://www.nretnil.com/avatar/swag_25k.jpg" />
-								<div class="designer-desc">
-									<p class="designer-name" style="display:flex; align-items:center;">Ben Jhamin
-										<btn-textlink-follow style="margin-left: 30px;" />
-									</p>
-									<p class="designer-id">@davearts</p>
+			<div class="design-detail">
+				<img class="design-image" src="https://cdn.dribbble.com/users/2546342/screenshots/5208110/skateboards_mockup_dribbble__size_2.jpg">
+				<div class="design-content">
+					<p class="design-title">Hurley X Machina Gold</p>
+					<div class="design-rate mobile-only-1023">
+						<div v-if="authLoggedIn"  class="rate-btns">
+							<btn-ratinglevel2 v-for="rate in 5" :key="rate" :ratingLevel="rate" />
+						</div>
+						<div  v-else class="rate-btns">
+							<btn-ratinglevel2 v-for="rate in 5" :key="rate" :ratingLevel="rate"  :btnDisabled="!$auth.loggedIn"/>
+							<btn-text v-if="!$auth.loggedIn" btnClass="btn primary lg" class="login-btn" @onClick="()=>{$router.push('/login')}">Please login to rate</btn-text>
+						</div>
+						<div class="rate-results">
+							<p>4.7<small>&nbsp;/&nbsp;5 rating</small></p>
+							<p>54<small>&nbsp;total votes</small></p>
+							<p>17<small>&nbsp;days left</small></p>
+						</div>
+					</div>
+					<p class="design-text">
+						Sed ullamcorper tellus quis nisl malesuada, quis porta nulla commodo. Sed volutpat, ipsum sed ullamcorper. Isscd nisl malesua Isscd nisl malesuada, quis porta nulla.
+					</p>
+					<div class="designer">
+						<div class="designer-info">
+							<img class="designer-img" src="https://www.nretnil.com/avatar/swag_25k.jpg" />
+							<div class="designer-desc">
+								<p class="designer-name" style="display:flex; align-items:center;">Ben Jhamin
+									<btn-textlink-follow style="margin-left: 30px;" />
+								</p>
+								<p class="designer-id">@davearts</p>
+							</div>
+						</div>
+					</div>
+					<div class="tags">
+						<tag v-for="tag in tags" :key="tag">{{tag}}</tag>
+					</div>
+					<div class="social-links-section mobile-only-1023">
+						<social-links></social-links>
+					</div>
+					<div class="design-rate desktop-only-1024">
+						<div v-if="authLoggedIn"  class="rate-btns">
+							<btn-ratinglevel2 v-for="rate in 5" :key="rate" :ratingLevel="rate" />
+						</div>
+						<div  v-else class="rate-btns">
+							<btn-ratinglevel2 v-for="rate in 5" :key="rate" :ratingLevel="rate"  :btnDisabled="!$auth.loggedIn"/>
+							<btn-text v-if="!$auth.loggedIn" btnClass="btn primary lg" class="login-btn" @onClick="()=>{$router.push('/login')}">Please login to rate</btn-text>
+						</div>
+						<div class="rate-results">
+							<p>4.7<small>&nbsp;/&nbsp;5 rating</small></p>
+							<p>54<small>&nbsp;total votes</small></p>
+							<p>17<small>&nbsp;days left</small></p>
+						</div>
+					</div>
+					<card-preorder class="preorder-card"/>
+					<div class="social-links-section desktop-only-1024">
+						<social-links></social-links>
+					</div>
+				</div>
+			</div>
+			<div class="comment-section">
+				<div class="comments">
+					<p>3 comments</p>
+					<post-comment style="margin-bottom:40px"/>
+					<comment style="margin-bottom: 60px;"/>
+					<comment style="margin-bottom: 60px;"/>
+				</div>
+				<div class="contest">
+					<p>About this contest</p>
+					<card-contest />
+					<div class="section">
+						<div class="card-section-header">
+							<div >
+								<div class="card-section-title">
+									Similar designs
 								</div>
 							</div>
-						</div>
-						<div class="tags">
-							<tag v-for="tag in tags" :key="tag">{{tag}}</tag>
-						</div>
-						<div class="design-rate">
-							<div v-if="authLoggedIn"  class="rate-btns">
-								<btn-ratinglevel2 v-for="rate in 5" :key="rate" :ratingLevel="rate" />
-							</div>
-							<div  v-else class="rate-btns">
-								<btn-ratinglevel2 v-for="rate in 5" :key="rate" :ratingLevel="rate"  :btnDisabled="true"/>
-								<btn-text btnClass="btn primary lg" class="login-btn">Please login to rate</btn-text>
-							</div>
-							<div class="rate-results">
-								<p>4.7<small>&nbsp;/&nbsp;5 rating</small></p>
-								<p>54<small>&nbsp;total votes</small></p>
-								<p>17<small>&nbsp;days left</small></p>
+							<div class="card-section-action">
+								<btn-text btnClass="btn secondary sm">See more</btn-text> 
 							</div>
 						</div>
-						<card-preorder />
-						<div class="social-links-section">
-							<social-links></social-links>
-							
+						<div class="card-container">
+							<div class="card-item">
+								<card-rate :cardData="cardDataMock"/>
+							</div>
+							<div class="card-item">
+								<card-rate :cardData="cardDataMock"/>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="comment-section">
-					<div class="comments">
-						<p>3 comments</p>
-						<post-comment style="margin-bottom:40px"/>
-						<comment style="margin-bottom: 60px;"/>
-						<comment style="margin-bottom: 60px;"/>
-					</div>
-					<div class="contest">
-						<p>About this contest</p>
-						<card-contest />
-						<div class="section">
-							<div class="card-section-header">
-								<div >
-									<div class="card-section-title">
-										Other designs in this contest
-									</div>
-								</div>
-								<div class="card-section-action">
-									<btn-text btnClass="btn secondary sm">See more</btn-text> 
-								</div>
-							</div>
-							<div class="card-container">
-								<div class="card-item">
-									<card-rate :cardData="cardDataMock"/>
-								</div>
-								<div class="card-item">
-									<card-rate :cardData="cardDataMock"/>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				
 			</div>
 		</div>
-		<div class="section bottom">
+		<div class="section bottom desktop-only">
 			<div class="page-section">
-
 				<div class="card-section-header">
 					<div >
 						<div class="card-section-title">
@@ -117,7 +127,7 @@ import { mapState } from 'vuex';
 export default {
 	name:"rate-design-detail",
 	// middleware: ['auth'],
-	layout: 'layout_home',
+	layout: 'layout_fullbanner',
 	components:{
 		BtnRatinglevel2, 
 		CardPreorder,
@@ -141,7 +151,14 @@ export default {
 		
 	},
 	methods:{
+		
+	},
+	computed:{
+		authLoggedIn(){
+			return this.$auth.$storage.getUniversal("authLoggedIn");
+		}
 	}
+	
 }
 </script>
 
@@ -154,11 +171,11 @@ export default {
 }
 .design-detail{
 	display: flex;
+	flex-direction: row;
 }
 .design-image{
 	width: 736px;
-	height: auto;
-	max-height: 1100px;
+	height: 1100px;
 }
 .design-content{
 	padding: 20px;
@@ -225,6 +242,7 @@ export default {
 	align-items: center;
 	padding-left: 20px;
 	margin-bottom: 40px;
+	width: 100%;
 }
 .rate-btns{
 	display: flex;
@@ -260,7 +278,7 @@ export default {
 	font-weight: normal;
 }
 .social-links-section{
-margin-top: 20px;
+	margin-top: 20px;
 }
 .social-links-header{
 	display: flex;
@@ -286,11 +304,11 @@ a.social-link{
 a.social-link:last-child{
 	margin-right: 0;
 }
-
 .comment-section{
 	display: grid;
 	grid-template-columns:50% 50%;
 	margin-top: 60px;
+	padding: 0 10px;
 }
 .comments{
 	padding-right: 10px;
@@ -347,17 +365,102 @@ a.social-link:last-child{
 .card-container{
 	display: flex;
 	overflow:auto;
-	// padding: 10px 0;
 }
 .card-item{
-margin-right: 20px;
+	margin-right: 20px;
 }
 .card-item:last-child{
 	margin-right: 0;;
 }
 .section.bottom{
 	background: #FBFBFB;
-	// background: #cccccc;
+	padding: 0 10px;
 	padding-bottom: 60px;
+}
+
+.desktop-only-1024{
+	display: flex;
+}
+.mobile-only-1023{
+	display: none;
+}
+.social-links-section.mobile-only-1023{
+	margin-bottom: 30px;
+}
+@media (max-width: 1276px){
+	.design-image{
+		width: 624px;
+		height: 932px;
+	}
+	.design-content{
+		width: calc(100% - 624px);
+	}
+	.design-content{
+		padding: 10px;
+	}
+	.design-title{
+		font-size: 24px;
+		line-height: 33px;
+	}
+	.design-rate{
+		padding-left: 0px;
+		margin-bottom: 20px;
+	}
+	.tags{
+		margin-bottom: 20px;
+	}
+}
+@media (max-width: 1023px){
+	.design-detail{
+		flex-direction: column;
+	}
+	.design-image{
+		width: 80%;
+		height: calc(80vw * 1100 / 736);
+		margin: 0 auto;
+	}
+	.design-rate{
+		width: fit-content;
+	}
+	.desktop-only-1024{
+		display: none;
+	}
+	.mobile-only-1023{
+		display: flex;
+		margin-top: 20px;
+	}
+	.design-content{
+		width: 100%;
+	}
+	.contest{
+		margin-left: 0;
+	}
+	.design-title{
+		padding-top: 10px
+	}
+}
+@media (max-width: 767px){
+	.design-image{
+		width: 100%;
+		max-width: 375px;
+		height: 500px;
+		margin: 0 auto;
+	}
+	.comment-section{
+		display: block;
+		margin-bottom: 50px;
+	}
+	.preorder-card{
+		margin: 0 auto;
+	}
+	.design-rate {
+		justify-content: center;
+		width: 100%;
+	}
+}
+@media (max-width: 374px) {
+	.rate-btns button{
+		margin-right: 5px;
+	}
 }
 </style>

@@ -3,7 +3,7 @@
 		<div class="post-comment">
 			<img class="avatar lg" src="https://www.nretnil.com/avatar/swag_25k.jpg" />
 			<div class="comment-input">
-				<input placeholder="Add a comment here..."/>
+				<input placeholder="Add comment..."/>
 			</div>
             <btn-text btnClass="btn secondary reply">Reply</btn-text>
 		</div>

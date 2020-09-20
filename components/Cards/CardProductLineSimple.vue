@@ -10,7 +10,7 @@
 				<p class="price">
 					€ 32,75
 				</p>
-				<tag-status :status="0">Pending shipment</tag-status>
+				<tag-status class="desktop-only-1023" :status="0">Pending shipment</tag-status>
 			</div>
 			<div class="content-col second">
 				<div class="col-item">
@@ -28,6 +28,10 @@
 					<p class="item-value">
 						Yes, and please grip it
 					</p>
+					
+				</div>
+				<div class="col-item">
+					<tag-status class="mobile-only-1023" :status="0">Pending shipment</tag-status>
 				</div>
 			</div>
 		</div>
@@ -47,18 +51,20 @@ export default {
 @import "~assets/css/variable.scss";
 .card-product-line{
 	width: 100%;
-	height: 183px;
 	display: flex;
-
+	flex-direction: row;
+	box-shadow: 0px 15px 40px rgba(45, 55, 72, 0.05);
+	border-radius: 5px;
 }
 .card-product-line img{
 	width: 196px;
+	border-radius: 5px;
 }
 .card-content{
 	width: 100%;
 	padding: 20px;
 	display: flex;
-
+	flex-direction: row;
 }
 .content-col{
 	width: 50%;
@@ -112,5 +118,59 @@ export default {
 }
 .col-item:first-child{
 	margin-bottom: 10px;
+}
+.desktop-only-1023{
+	display: block;
+}
+.mobile-only-1023{
+	display: none;
+}
+@media (max-width: 1023px){
+	.card-product-line{
+		flex-direction:column; 
+	}
+	.card-product-line img{
+		width: 100%;
+		height: auto;
+	}
+	.card-content{
+		flex-direction: column;
+	}
+	.content-col{
+		width: 100%;
+	}
+	.content-col.content-col.second{
+		padding-top: 0px;
+	}
+	.price{
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	.col-item{
+		flex-direction: row;
+		margin-bottom: 10px;
+	}
+	.col-item:last-child{
+		margin-bottom: 0;
+	}
+	.item-name{
+		width: 30%;
+	}
+	.desktop-only-1023{
+		display: none;
+	}
+	.mobile-only-1023{
+		display: block;
+	}
+}
+@media (max-width: 767px){
+	.card-product-line img{
+		width: 100%;
+		max-width: 355px;
+		height: calc(100vw - 20px);
+		max-height: 355px;
+		border-bottom-left-radius: 0;
+    	border-bottom-right-radius: 0
+	}
 }
 </style>

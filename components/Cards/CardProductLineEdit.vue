@@ -78,12 +78,14 @@ export default {
 @import "~assets/css/variable.scss";
 .card-product-line{
 	width: 100%;
-	height: 230px;
 	display: flex;
-
+	flex-direction: row;
+	box-shadow: 0px 15px 40px rgba(45, 55, 72, 0.05);
+	border-radius: 5px;
 }
 .card-product-line img{
 	width: 196px;
+	 height: 230px;
 }
 .card-content{
 	width: 100%;
@@ -94,6 +96,7 @@ export default {
 .btn-edit{
 	position: absolute;
 	right: 20px;
+	top: 24px;
 }
 .content-col{
 	width: 50%;
@@ -139,6 +142,33 @@ export default {
 }
 .col-item .item-value.stock{
 	color: #44DC94;
-	
+}
+
+@media (max-width: 1295px) and (min-width: 1024px){
+	.card-content{
+		padding: 15px;
+	}
+}
+@media (max-width: 1023px){
+	.card-product-line{
+		flex-direction: column;
+	}
+
+	.card-product-line{
+		flex-direction: column;
+		width: 100%;
+		max-width: 335px;
+	}
+	.card-product-line img{
+		width: 100%;
+		max-width: 335px;
+		height: 335px;
+	}
+	.card-content{
+		flex-direction: column;
+	}
+	.content-col{
+		width: 100%;
+	}
 }
 </style>

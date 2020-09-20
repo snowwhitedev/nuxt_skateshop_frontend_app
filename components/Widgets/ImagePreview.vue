@@ -45,10 +45,13 @@ export default {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-
 	width: 100%;
-	max-width: 220px;
-	height: 328px;
+	max-width: 167px;
+	height: 249px;
+
+	border: 2px solid #2E9BFF;
+	box-sizing: border-box;
+	border-radius: 5px;
 }
 .image-hold{
 	width: 50%;

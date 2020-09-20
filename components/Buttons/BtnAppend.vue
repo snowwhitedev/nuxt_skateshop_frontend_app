@@ -45,7 +45,7 @@ export default {
 	align-items: center;
 	padding-top:0;
 	padding-bottom: 0;
-	padding-right: 10px;
+	padding-right: 5px;
 	// max-width: fit-content;
 }
 .append-icon{

@@ -16,6 +16,7 @@ button.dcknd-tag{
     letter-spacing: 0.03em;
     color: #283441;
     text-transform: capitalize;
+    background: #F3F4F4;
     // max-width: fit-content;
 }   
 </style>

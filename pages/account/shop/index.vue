@@ -6,18 +6,20 @@
 			</p>
 		</div>
 		<div class="content-body">
-			<div class="shop-tabs">
-			 	<div class="tab">
-					<nuxt-link :to="`/account/shop/dashboard`">Dashboard</nuxt-link>
-				</div>
-				<div class="tab">
-					<nuxt-link :to="`/account/shop/designs`">My designs(5)</nuxt-link>
-				</div>
-				<div class="tab">
-					<nuxt-link :to="`/account/shop/products`">My products(3)</nuxt-link>
-				</div>
-				<div class="tab">
-					<nuxt-link :to="`/account/shop/settings`">Settings</nuxt-link>
+			<div class="tab-container">
+				<div class="shop-tabs">
+					<div class="tab">
+						<nuxt-link :to="`/account/shop/dashboard`">Dashboard</nuxt-link>
+					</div>
+					<div class="tab">
+						<nuxt-link :to="`/account/shop/designs`">My designs(5)</nuxt-link>
+					</div>
+					<div class="tab">
+						<nuxt-link :to="`/account/shop/products`">My products(3)</nuxt-link>
+					</div>
+					<div class="tab">
+						<nuxt-link :to="`/account/shop/settings`">Settings</nuxt-link>
+					</div>
 				</div>
 			</div>
 			<div class="tab-content">
@@ -28,13 +30,11 @@
 </template>
 
 <script>
-import Tabs from '@/components/Widgets/Tabs.vue';
-import Tab from '@/components/Widgets/Tab.vue';
 export default {
 	layout:'layout_account',
 	components:{
-		Tabs,
-		Tab
+		// Tabs,
+		// Tab
 	},
 	data(){
 		return{
@@ -45,11 +45,7 @@ export default {
 
 	},
 	created(){
-		// this.$router.push('/account/shop/dashboard');
 		const currentPath = this.$router.history.current.path;
-		
-		// const currentPath = '/account/shop/dashboard/';
-		
 		const pathArr = currentPath.split('/');
 		if (pathArr[pathArr.length-1] === "shop"){
 			this.$router.push('/account/shop/dashboard');
@@ -82,11 +78,13 @@ p.content-brand{
 	height: 1px;
 	background:#E7E8EA;
 }
-
+.tab-container{
+	border-bottom: 1px solid #E7E8EA;
+}
 .shop-tabs{
 	margin-top: 20px;
 	background: #FFFFFF;
-	border-bottom: 1px solid #E7E8EA;
+	
 	padding-bottom: 10px;
 	display: flex;
 }
@@ -114,5 +112,13 @@ p.content-brand{
 
 .tab-content{
 	margin-top:20px;
+}
+@media (max-width: 1023px){
+	.tab-container{
+		overflow-x: auto;
+	}
+	.shop-tabs{
+		width: max-content;
+	}
 }
 </style>

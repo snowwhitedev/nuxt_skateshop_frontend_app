@@ -3,6 +3,7 @@
 		<p class="checkout-title">
 			Checkout
 		</p>
+		<hr v-if="$device.isMobile" />
 		<div class="checkout-main-container">
 			<div class="col-first">
 				<p class="col-label">Have an account already</p>
@@ -14,16 +15,22 @@
 						<checkbox label="Remember me" />
 						<nuxt-link to="/login/forgot"><textlink btnClass="textlink blue">Forgot password?</textlink></nuxt-link>
 					</div>
-					
+				</div>
+				<div class="form-action" v-if="$device.isMobile">
+					<btn-append style="margin-top: 30px;">Login and checkout</btn-append>
+					<social-auth style="margin-top:30px; margin-bottom: 30px;"/>
 				</div>
 			</div>
 			<div class="col-second">
+				<hr v-if="$device.isMobile"/>
 				<p class="col-label">You are new here</p>
 				<p class="col-text">Don’t worry, you can register a free deckend account during checkout.</p>
-				
+				<div class="form-action" style="margin-top: 20px;" v-if="$device.isMobile">
+					<btn-append @onClick="()=>{$router.push(`/shop/checkout/step`)}">Checkout as a guest</btn-append>
+				</div>
 			</div>
 		</div>
-		<div class="checkout-main-container action">
+		<div class="checkout-main-container action" v-if="!$device.isMobile">
 			<div class="col-first">
 				<div class="form-action">
 					<btn-append >Login and checkout</btn-append>
@@ -42,7 +49,7 @@
 <script>
 import SocialAuth from '@/components/Widgets/SocialAuth.vue';
 export default {
-	layout: 'layout_checkout',
+	layout: 'layout_checkout_login',
 	components:{
 		SocialAuth
 	}
@@ -54,7 +61,7 @@ export default {
 .checkout-login{
 	width: 100%;
 	max-width: 784px;
-	margin: 0 auto;
+	margin: 0 auto 60px;
 }
 .checkout-title{
 	font-family: $font-family-primary;
@@ -67,6 +74,7 @@ export default {
 .checkout-main-container{
 	width: 100%;
 	display: flex;
+	flex-direction: row;
 }
 .col-first{
 	width:50%;
@@ -87,7 +95,6 @@ export default {
 .main-content{
 	padding-right: 40px;
 	border-right: 1px solid #E7E8EA;
-	// border-right: 1px solid black;
 }
 .col-text{
 	font-family: $font-family-primary;
@@ -118,5 +125,35 @@ export default {
 }
 .action .col-second{
 	padding-right: 40px;
+}
+
+@media (max-width: 767px) {
+	.checkout-title{
+		font-size: 20px;
+		line-height: 27px;
+		margin-bottom: 0;
+	}
+	.checkout-main-container{
+		flex-direction: column;
+	}
+	.main-content{
+		border: none;
+		padding-right: 0;
+	}
+	.col-first{
+		width: 100%;
+	}
+	.col-second{
+		width: 100%;
+		margin-left: 0;
+	}
+	.input-lg{
+		max-width: 100%;
+	}
+	.col-label{
+		font-size: 20px;
+		line-height: 27px;
+		margin-bottom: 10px;
+	}
 }
 </style>

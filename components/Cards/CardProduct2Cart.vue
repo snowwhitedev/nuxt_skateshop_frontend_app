@@ -47,7 +47,7 @@
 				<path d="M3.33301 3.33331H11.6663C12.5863 3.33331 13.333 4.08165 13.333 4.99998V5.83331H14.9997C16.8372 5.83331 18.333 7.32831 18.333 9.16665V14.1666C18.333 14.6266 17.9605 15 17.4997 15H15.6788C15.3338 15.9683 14.418 16.6666 13.333 16.6666C12.248 16.6666 11.3322 15.9683 10.9863 15H8.17968C7.83467 15.9683 6.91801 16.6666 5.83384 16.6666C4.74967 16.6666 3.83301 15.9683 3.48717 15H2.49967C2.03884 15 1.66634 14.6266 1.66634 14.1666V4.99998C1.66634 4.08165 2.41301 3.33331 3.33301 3.33331ZM3.33301 4.99998V13.3333H3.48634C3.83218 12.365 4.74884 11.6666 5.83301 11.6666C6.91717 11.6666 7.83384 12.365 8.17968 13.3333H10.9855C11.1272 12.9383 11.3605 12.5925 11.6655 12.3175V4.99998H3.33301ZM16.6663 9.16665C16.6663 8.24748 15.9197 7.49998 14.9997 7.49998H13.333V11.6666C14.418 11.6666 15.3338 12.365 15.6797 13.3333H16.6663V9.16665ZM13.333 15C13.7922 15 14.1663 14.6266 14.1663 14.1666C14.1663 13.7075 13.7922 13.3333 13.333 13.3333C12.8738 13.3333 12.4997 13.7075 12.4997 14.1666C12.4997 14.6266 12.8738 15 13.333 15ZM5.83301 15C6.29217 15 6.66634 14.6266 6.66634 14.1666C6.66634 13.7075 6.29217 13.3333 5.83301 13.3333C5.37384 13.3333 4.99967 13.7075 4.99967 14.1666C4.99967 14.6266 5.37384 15 5.83301 15Z" fill="#44DC94"/>
 				<path d="M14.1663 8.33331H15.833V9.99998H14.1663V8.33331Z" fill="#44DC94"/>
 			</svg>
-			<p><a href="#">Same day shipping </a>for orders placed on business days before 18:00</p>
+			<p><a href="#">Same day shipping </a><span v-if="!$device.isMobile">for orders placed</span> on business days before 18:00</p>
 		</div>
 		<div class="additional-link">
 			<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -106,6 +106,7 @@ p.reviews{
 .check-stock{
 	display: flex;
 	align-items: center;
+	margin-top: 20px;
 }
 .check-stock p{
 	font-family: $font-family-primary;
@@ -148,7 +149,6 @@ p.reviews{
 	background-size: 10px 6px;
 	background-repeat: no-repeat;
 	background-position: 94% 50%;
-
 	line-height: 1.1;
 	height: 50px;
     border-radius: 3px;
@@ -160,9 +160,7 @@ p.reviews{
     font-style: normal;
     font-weight: 300;
     letter-spacing: 0.01em;
-
 	padding-left: 50px!important;
-
 	background-clip: padding-box;
     border: 1px solid #ced4da;
 	width: 100%;
@@ -203,4 +201,10 @@ select{
 	color: #44DC94;
 }
 
+@media (max-width: 767px){
+	.price-now {
+		font-size: 24px;
+		line-height: 33px;
+	}
+}
 </style>

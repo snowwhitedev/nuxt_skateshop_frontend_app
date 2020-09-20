@@ -90,6 +90,7 @@ export default {
 }
 .custom_radio label input[type=radio]+.check_text {
 	width: 24px;
+	min-width: 24px;
 	height: 24px;
 	border: 1px solid #283441;
 	position: relative;
@@ -101,7 +102,7 @@ export default {
 	-o-transition: all 0.3s ease-in-out 0s;
 	transition: all 0.3s ease-in-out 0s;
 	vertical-align: middle;
-	margin-right: 30px;
+	margin-right: 20px;
 }
 
 .custom_radio label input[type=radio]+.check_text:before {

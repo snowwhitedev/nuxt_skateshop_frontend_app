@@ -1,8 +1,14 @@
 <template>
 	<div class="page-section">
-		<banner-main title="Design Contests" subTitle="2 open contests" />
+		<banner-main title="Design Contests" subTitle="2 open contests" class="no-btn" />
 		<div class="app-container">
-			<div class="section">
+			<div class="section desktop-only-1023">
+				<div class="contest-card-item"><card-contest-detail :cardData="contests[0]"/></div>
+				<div class="contest-card-item"><card-contest-detail :cardData="contests[1]" cardType="right"/></div>
+				<div class="contest-card-item"><card-contest-detail :cardData="contests[2]"/></div>
+				<div class="contest-card-item"><card-contest-detail :cardData="contests[3]" cardType="right"/></div>
+			</div>
+			<div class="section grid-container-3 mobile-only-1023">
 				<div class="contest-card-item"><card-contest-detail :cardData="contests[0]"/></div>
 				<div class="contest-card-item"><card-contest-detail :cardData="contests[1]" cardType="right"/></div>
 				<div class="contest-card-item"><card-contest-detail :cardData="contests[2]"/></div>
@@ -32,33 +38,33 @@ export default {
 			contests:[
 				{    
 					"id": 1,
-					"cardImage": 'https:/resources/assets/images/contest_images/photo-1531948371443-d5afa127f918.jpg',
-					'logoImage': 'https://resources/assets/images/brand_logo/1567515154.logo-RedBull.png'
+					"cardImage": 'https://i2.wp.com/hilarystyle.me/wp-content/uploads/2017/06/img_1262.jpg?resize=1288%2C724&ssl=1',
+					'logoImage': 'https://i.pinimg.com/originals/c0/9f/29/c09f29209dcadcf184899b6981bff403.jpg'
 				},
 				{    
 					"id": 2,
-					"cardImage": 'https://resources/assets/images/contest_images/photo-1531948371443-d5afa127f918.jpg',
-					'logoImage': 'https://resources/assets/images/brand_logo/1567515154.logo-RedBull.png'
+					"cardImage": 'https://i2.wp.com/hilarystyle.me/wp-content/uploads/2017/06/img_1262.jpg?resize=1288%2C724&ssl=1',
+					'logoImage': 'https://i.pinimg.com/originals/c0/9f/29/c09f29209dcadcf184899b6981bff403.jpg'
 				},
 				{    
 					"id": 3,
-					"cardImage": 'https://resources/assets/images/contest_images/photo-1531948371443-d5afa127f918.jpg',
-					'logoImage': 'https://resources/assets/images/brand_logo/1567515154.logo-RedBull.png'
+					"cardImage": 'https://i2.wp.com/hilarystyle.me/wp-content/uploads/2017/06/img_1262.jpg?resize=1288%2C724&ssl=1',
+					'logoImage': 'https://i.pinimg.com/originals/c0/9f/29/c09f29209dcadcf184899b6981bff403.jpg'
 				},
 				{    
 					"id": 4,
-					"cardImage": 'https://resources/assets/images/contest_images/photo-1531948371443-d5afa127f918.jpg',
-					'logoImage': 'https://resources/assets/images/brand_logo/1567515154.logo-RedBull.png'
+					"cardImage": 'https://i2.wp.com/hilarystyle.me/wp-content/uploads/2017/06/img_1262.jpg?resize=1288%2C724&ssl=1',
+					'logoImage': 'https://i.pinimg.com/originals/c0/9f/29/c09f29209dcadcf184899b6981bff403.jpg'
 				},
 				{    
 					"id": 5,
-					"cardImage": 'https://resources/assets/images/contest_images/photo-1531948371443-d5afa127f918.jpg',
-					'logoImage': 'https://resources/assets/images/brand_logo/1567515154.logo-RedBull.png'
+					"cardImage": 'https://i2.wp.com/hilarystyle.me/wp-content/uploads/2017/06/img_1262.jpg?resize=1288%2C724&ssl=1',
+					'logoImage': 'https://i.pinimg.com/originals/c0/9f/29/c09f29209dcadcf184899b6981bff403.jpg'
 				},
 				{    
 					"id": 6,
-					"cardImage": 'https://resources/assets/images/contest_images/photo-1531948371443-d5afa127f918.jpg',
-					'logoImage': 'https://resources/assets/images/brand_logo/1567515154.logo-RedBull.png'
+					"cardImage": 'https://i2.wp.com/hilarystyle.me/wp-content/uploads/2017/06/img_1262.jpg?resize=1288%2C724&ssl=1',
+					'logoImage': 'https://i.pinimg.com/originals/c0/9f/29/c09f29209dcadcf184899b6981bff403.jpg'
 				}
 			]
 		}
@@ -107,6 +113,24 @@ export default {
     grid-row-gap: 36px;
     max-width: 1276px;
     justify-items: center;
+}
+.desktop-only-1023{
+	display: block;
+}
+.mobile-only-1023{
+	display: none;
+}
+@media (max-width: 1023px){
+	.contest-card-item{
+		max-width: 355px;
+		margin: 0 auto 20px;
+	}
+	.desktop-only-1023{
+		display: none;
+	}
+	.mobile-only-1023{
+		display: grid;
+	}
 }
 
 @media only screen and (max-width: 1315px){

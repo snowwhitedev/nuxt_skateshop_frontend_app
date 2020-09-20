@@ -1,5 +1,5 @@
 <template>
-	<div class="edit-image">
+	<div class="edit-image" :style="editHeight">
 		<div class="image-container main">
 			<label>Main product image (Can’t be changed)</label>
 			<img src="https://images.unsplash.com/photo-1520045892732-304bc3ac5d8e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" />
@@ -7,16 +7,15 @@
 		<div class="extra-images">
 			<draggable :list="files" class="added-images" >
 				<transition-group>
-					<div class="image-container" v-for="(file, key) in files" :key="key">
-						<label>Image&nbsp;{{parseInt(key)+1}}</label>
-						<img v-bind:ref="'preview'+parseInt(key)"/>
-						<div class="remove-img" @click="removeImage(key)">
+					<div class="image-container" v-for="(file, index) in files" :key="index+1">
+						<label>Image&nbsp;{{parseInt(index)+1}}</label>
+						<img v-bind:ref="'preview'+parseInt(index)"/>
+						<div class="remove-img" @click="removeImage(index)">
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<circle cx="12" cy="12" r="10" fill="white"/>
 								<path d="M12.043 1.99902C6.51997 1.99902 2.04297 6.47602 2.04297 11.999C2.04297 17.522 6.51997 21.999 12.043 21.999C17.566 21.999 22.043 17.522 22.043 11.999C22.043 6.47602 17.565 1.99902 12.043 1.99902ZM16.75 15.292L15.336 16.706L12.043 13.414L8.74997 16.706L7.33597 15.292L10.628 11.999L7.33497 8.70602L8.74897 7.29302L12.042 10.586L15.335 7.29302L16.749 8.70602L13.457 11.999L16.75 15.292Z" fill="#283441"/>
 							</svg>
 						</div>
-						<!-- <p style="background: #ccc;">{{ file.name }}</p> -->
 					</div>
 				</transition-group>
 			</draggable>
@@ -47,10 +46,11 @@ export default {
 	data(){
 		return{
 			files: [],
-			dragList: [1,2,3,4],
-			fileInputPos: ''
+			fileInputPos: '',
+			editHeight: ''
 		}
 	},
+	
 	methods:{
 		handleFileInput(e) {
 			
@@ -86,14 +86,25 @@ export default {
 			deep: true,
 			handler(){
 				this.getImagePreviews();
-				if (this.files.length < 3){
-					this.fileInputPos = "top: 0;"
-				} else {
-					this.fileInputPos = "bottom: 0;"
+				let windowWidth =  window.innerWidth;
+				if(windowWidth >= 1296){
+					if (this.files.length < 3){
+						this.fileInputPos = "top: 0;"
+					} else {
+						this.fileInputPos = "bottom: 0;"
+					}
+					let hh = this.files.length % 3;
+					let rightPos = (2 - hh) * 160 + 10;
+					this.fileInputPos += `right:${rightPos}px;`;
+				} else{
+					let row = Math.floor(this.files.length/2) ;
+					let col = (this.files.length % 2);
+					this.fileInputPos = `top: ${ 164 * row + 10 * row }px;`;
+					this.fileInputPos += `left: ${143 * col + 9 * col}px;`;
+					let minHeight = (row + 1)  * (164 + 10) + 352 + 40;
+					this.editHeight = `min-height: ${minHeight}px;`;
 				}
-				let hh = this.files.length % 3;
-				let rightPos = (2 - hh) * 160 + 10;
-				this.fileInputPos += `right:${rightPos}px;`;
+				
 			}
 		}
 	}
@@ -110,6 +121,7 @@ export default {
 	// background: #cccccc;
 	border-radius: 5px;
 	display: flex;
+	flex-direction: row;
 }
 .image-container{
 	display: flex;
@@ -208,4 +220,35 @@ export default {
 .image-selector{
 	position: absolute;
 }
+
+@media (max-width: 1295px){
+	.edit-image{
+		flex-direction: column;
+	}
+	.image-container img{
+		width: 143px;
+		height: 143px;
+	}
+	.image-input{
+		width: 143px;
+		height: 143px;
+	}
+	.edit-image{
+		padding: 20px;
+		min-height: 566px;
+		max-width: 335px;
+	}
+	.image-container{
+		margin-right: 9px;
+	}
+
+	.image-container.main img{
+		width: 295px;
+		min-width: 295px;
+	}
+	.image-container:nth-child(even){
+		margin-right: 0;
+	}
+}
+
 </style>

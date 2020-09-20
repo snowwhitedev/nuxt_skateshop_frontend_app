@@ -28,4 +28,9 @@ export default {
 	padding: 24px 20px, 20px, 30px;
 	box-sizing: border-box;
 }
+@media (max-width: 1023px){
+	.other-comments{
+		margin-left: 20px;
+	}
+}
 </style>

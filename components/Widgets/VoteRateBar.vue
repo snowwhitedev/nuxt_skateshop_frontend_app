@@ -41,6 +41,7 @@ export default {
 		background: #E7E8EA;
 		border-radius: 7px;
 		position: relative;
+		margin-left: 10px;
 	}
 	.review-part{
 		position: absolute;

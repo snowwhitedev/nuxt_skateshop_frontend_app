@@ -1,35 +1,39 @@
 <template>
 	<div>
-	<news-flash >The whole month of April, FREE SHIPPING worldwide</news-flash>
-	<div class="app-container">
-		<div class="header-menu">
-			<TheHeader @sidenavToggle="displaySidenav = !displaySidenav" />
-		</div>
-		<TheSidenav
-			:show="displaySidenav"
-			@close="displaySidenav = false" />
-		<nuxt/>
-	</div>
-	<the-footer />
+    <news-flash >The whole month of April, FREE SHIPPING worldwide</news-flash>
+    <div class="app-container">
+      <div class="header-menu">
+        <TheHeader @sidenavToggle="displaySidenav = !displaySidenav" />
+      </div>
+      <TheSidenav
+        :show="displaySidenav"
+        @close="displaySidenav = false" />
+      <nuxt/>
+    </div>
+    <the-footer />
+    <cookie-alert v-if="cookieDlg" @close="() => cookieDlg = false" />
 	</div>
 </template>
 
 <script>
-import NewsFlash from '../components/Notification/NewsFlash.vue';
-import TheHeader from '@/components/Navigation/TheHeader';
-import TheSidenav from '@/components/Navigation/TheSidenav';
+import NewsFlash from '@/components/Notification/NewsFlash.vue';
+import TheHeader from '@/components/Navigation/TheHeader.vue';
+import TheSidenav from '@/components/Navigation/TheSideNav.vue';
 import TheFooter from '@/components/Footer/TheFooter.vue';
+import CookieAlert from '@/components/Widgets/CookieAlert.vue';
 
 export default {
   components: {
     TheHeader,
     TheSidenav,
     TheFooter,
-    NewsFlash
+    NewsFlash,
+    CookieAlert
   },
   data() {
     return {
-      displaySidenav: false
+      displaySidenav: false,
+      cookieDlg: true
     }
    
   },

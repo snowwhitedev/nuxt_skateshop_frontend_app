@@ -1,5 +1,5 @@
 <template>
-	<div class="card-product-line">
+	<div class="card-design-line">
 		<img src="https://images.unsplash.com/photo-1520045892732-304bc3ac5d8e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" />
 		<div class="card-content">
 			<nuxt-link :to="`/account/shop/designs/1/edit`" ><textlink btnClass="textlink blue" class="btn-edit">Edit</textlink></nuxt-link>
@@ -62,7 +62,7 @@
 
 <script>
 export default {
-	name: 'card-product-line',
+	name: 'card-design-line',
 	props:{
 
 	}
@@ -71,24 +71,28 @@ export default {
 
 <style lang="scss" scoped>
 @import "~assets/css/variable.scss";
-.card-product-line{
+.card-design-line{
 	width: 100%;
-	height: 214px;
 	display: flex;
-
+	flex-direction: row;
+	box-shadow: 0px 15px 40px rgba(45, 55, 72, 0.05);
+	border-radius: 5px;
 }
-.card-product-line img{
+.card-design-line img{
 	width: 196px;
+	height: 214px;
 }
 .card-content{
 	width: 100%;
 	padding: 20px;
 	display: flex;
 	position: relative;
+	flex-direction: row;
 }
 .btn-edit{
 	position: absolute;
 	right: 20px;
+	top: 24px;
 }
 .content-col{
 	width: 50%;
@@ -140,5 +144,22 @@ p.rate-mark small{
 .col-item .item-value{
 	font-weight: normal;
 	font-size: 12px;
+}
+
+@media (max-width: 1023px){
+	.card-design-line{
+		flex-direction: column;
+		width: 335px;
+	}
+	.card-design-line img{
+		width: 335px;
+		height: 335px;
+	}
+	.card-content{
+		flex-direction: column;
+	}
+	.content-col{
+		width: 100%;
+	}
 }
 </style>

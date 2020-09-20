@@ -5,21 +5,23 @@
 			<TheSidenav :show="displaySidenav"	@close="displaySidenav = false" />
 		</div>
 		<nuxt/>
-		<the-footer />
+    <div class="page-footer" v-if="showMobileFooter">
+		  <the-footer  />
+    </div>
 	</div>
 </template>
 
 <script>
-import TheHeader from '@/components/Navigation/TheHeader';
-import TheSidenav from '@/components/Navigation/TheSidenav';
-import TheFooter from '@/components/Footer/TheFooter.vue';
+import { mapGetters } from 'vuex'
+import TheHeader from '@/components/Navigation/TheHeader.vue';
+import TheSidenav from '@/components/Navigation/TheSideNav.vue';
+
 import BannerMain from '@/components/Banners/BannerMain.vue';
 
 export default {
   components: {
     TheHeader,
     TheSidenav,
-    TheFooter,
     BannerMain
   },
   data() {
@@ -28,7 +30,9 @@ export default {
     }
   },
   created(){
-    console.log("[full banner layout]");
+  },
+  computed: {
+    ...mapGetters('uiprops', ['showMobileFooter'])
   }
 }
 </script>
@@ -39,5 +43,8 @@ export default {
 	max-width: 1296px;
 	margin: 0 auto;
 	padding: 0 10px;
+}
+.page-footer {
+  margin-top: 60px;
 }
 </style>

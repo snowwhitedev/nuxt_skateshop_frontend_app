@@ -27,7 +27,7 @@
             </div>
             <div class="form-col">
                 <div class="form-input">
-                    <label >&nbsp;</label>
+                    <label class="display-only-767">&nbsp;</label>
                     <checkbox-fill label="Create a free deckend account to make things a bit easier next time." value="freeaccount" />
                 </div>
             </div>
@@ -163,6 +163,7 @@ export default {
     display: flex;
     width: 100%;
     justify-content: space-between;
+    flex-direction: row;
 }
 
 .form-col{
@@ -201,5 +202,46 @@ label small{
     letter-spacing: 0.01em;
     color: #9399A0;
     max-width: 384px;
+}
+@media (max-width: 767px){
+    .section-title{
+        font-size: 20px;
+        line-height: 27px; 
+    }
+    .form-row{
+        flex-direction: column;
+    }
+    
+    .form-col{
+        width: 100%;
+        margin-top: 20px;
+    }
+    .input-lg{
+        max-width: 100%;
+    }
+    .mt-1,
+    .mt-2,
+    .mt-4,
+    .mt-6{
+        margin-top: 0;
+    }
+    .form-action{
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+    .section-title.disabled{
+        margin-top: 20px;
+    }
+    .form-final-action{
+        display: block;
+        margin-top: 20px;
+    }
+    .form-final-action button{
+        float: right;
+        margin-top: 10px;
+    }
+    .display-only-767 {
+        display: none;
+    }
 }
 </style>

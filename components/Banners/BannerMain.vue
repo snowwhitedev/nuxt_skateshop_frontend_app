@@ -39,6 +39,9 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~assets/css/variable.scss";
+.banner-btn{
+    display: block;
+}
 .banner-btn button{
     height: 60px;
     padding-left: 25px;
@@ -103,6 +106,26 @@ export default {
 @media (max-width: 767px){
     .title{
         font-size: 24px;
+    }
+    .banner-main{
+        height: 140px;
+    }
+}
+@media (max-width: 570px){
+    .banner-main{
+        height: 250px;
+    }
+    .banner-main.no-btn{
+        height: 140px;
+    }
+    .banner-content{
+        display: block;
+    }
+    .banner-btn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
     }
 }
 </style>

@@ -269,6 +269,25 @@ button:focus{
 .wrapper{
     width: 100%;
 }
+
+.notification-panel{
+    font-family: "Nunito";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: 0.02em;
+    color: #283441;
+}
+.notification-panel a.notification-link{
+    color: #2E9BFF;
+}
+.notification-panel a.notification-link:hover{
+    cursor: pointer;
+    color: #357BFF !important;
+}
+
+
 .desktop-only{
     display: block;
 }

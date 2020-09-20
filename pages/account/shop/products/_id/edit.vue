@@ -5,8 +5,19 @@
 			<p class="content-brand">
 				Skate or Die 
 			</p>
-			<div class="horizontal-line"></div>
+			<div class="horizontal-line mobile-only-767" style="margin: 20px 0;"></div>
+			<div class="product-summary">
+				<div class="product-summary-left">
+					<p class="summary-top">Stock</p>
+					<p class="summary-bottom stock">In stock</p>
+				</div>
+				<div class="product-summary-right">
+					<p class="summary-top">Published on</p>
+					<p class="summary-bottom">23/07/2019</p>
+				</div>
+			</div>
 		</div>
+		<div class="horizontal-line first desktop-only-767"></div>
 		<div class="content-body">
 			<div class="form-row">
 				<div class="form-input">
@@ -49,7 +60,7 @@
 					<input type="text" class="input-md" value="€ 59,00" readonly>
 				</div>
 				<div class="form-input">
-					<label>Discount price&nbsp;<small>(Option available 1 month after publish date)</small></label>
+					<label>Discount price&nbsp;<small>(Available 1 month after publish date)</small></label>
 					<select-box :items="dicountPrices" placeholder="Select your discount price" class="input-field"/>
 				</div>
 			</div>
@@ -57,7 +68,7 @@
 			<div class="form-row">
 				<div class="full-width">
 					<p class="widget-label">Product images&nbsp;<small>(Max. 7 images. Drag to change order)</small></p>
-					<edit-image />
+					<edit-image class="editImage"/>
 				</div>
 			</div>
 			<div class="horizontal-line"></div>
@@ -114,6 +125,7 @@ export default {
 @import "~assets/css/variable.scss";
 .account-content-container{
 	padding-top: 40px;
+	margin-bottom: 60px;
 }
 p.content-brand{
 	font-family: $font-family-primary;
@@ -122,15 +134,47 @@ p.content-brand{
 	font-size: 24px;
 	line-height: 33px;
 	color: #283441;
-	margin-bottom: 20px;
 }
+
 .content-header{
 	margin-top: 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.product-summary{
+	display: flex;
+}
+.product-summary-left{
+	margin-right: 50px;
+}
+.summary-top{
+	font-family: $font-family-primary;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 19px;
+	color: #283441;
+}
+.summary-bottom{
+	font-family: $font-family-primary;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 16px;
+	letter-spacing: 0.03em;
+	color: #283441;
+}
+.summary-bottom.stock{
+	color: #44DC94;
 }
 .horizontal-line{
 	width: 100%;
 	height: 1px;
 	background:#E7E8EA;
+}
+.horizontal-line.first{
+	margin: 20px auto 30px;
 }
 .horizontal-line.sep{
 	margin-top:30px;
@@ -140,6 +184,7 @@ p.content-brand{
 	display: flex;
 	width: 100%;
 	margin-top: 20px;
+	flex-direction: row;
 }
 .form-input{
 	width: 50%;
@@ -185,5 +230,64 @@ p.widget-label{
 	display: flex;
 	justify-content: flex-end;
 	margin-top: 20px;
+}
+.mobile-only-767{
+	display: none;
+}
+.desktop-only-767{
+	display: block;
+}
+@media (max-width: 1023px){
+	.form-row{
+		flex-direction: column;
+	}
+	.form-input{
+		width: 100%;
+		padding: 0;
+	}
+	.form-input:last-child{
+		padding: 0;
+		margin-top:20px;
+	}
+	.input-md{
+		max-width: 100%;
+	}
+	.horizontal-line.first{
+		margin: 15px auto;
+	}
+	.account-content-container{
+		margin-bottom: 50px;
+	}
+}
+@media (max-width: 767px){
+	.form-row{
+		flex-direction: column;
+	}
+	.form-input{
+		width: 100%;
+		padding: 0;
+	}
+	.form-input:last-child{
+		padding: 0;
+		margin-top:20px;
+	}
+	.input-md{
+		max-width: 100%;
+	}
+	.horizontal-line.first{
+		margin: 15px auto;
+	}
+	.content-header{
+		flex-direction: column;
+	}
+	.mobile-only-767{
+		display: block;
+	}
+	.desktop-only-767{
+		display: none;
+	}
+	.editImage{
+		margin: 0 auto 30px;
+	}
 }
 </style>

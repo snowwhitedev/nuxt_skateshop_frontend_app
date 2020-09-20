@@ -4,7 +4,7 @@
 			<Logo />
 			<div class="mobile-extra-action">
 				<nuxt-link to="/login/register">
-					<btn-text btnClass="btn primary lg">Register</btn-text>
+					<btn-text btnClass="btn primary sm">Register</btn-text>
 				</nuxt-link>
 				<div class="close-btn-mobile" @click="closeLogin">
 					<svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -29,7 +29,7 @@
 			<nuxt-link to="/login/forgot"><textlink btnClass="textlink blue">Forgot password?</textlink></nuxt-link>
 		</div>
 		<div class="auth-action">
-			<btn-text btnClass="btn primary lg">Login</btn-text>
+			<btn-text btnClass="btn primary lg login">Login</btn-text>
 			<social-auth />
 		</div>
 		<div class="additional-note">
@@ -50,7 +50,7 @@ export default {
 	},
 	methods:{
 		closeLogin: function(){
-			this.$router.go(-1);
+			this.$router.push('/');
 		}
 	}
 	
@@ -140,7 +140,9 @@ export default {
 	padding-bottom: 10px;
 	display: none;
 }
-
+.btn.login {
+	height: 50px !important;
+}
 @media only screen and (max-width: 768px){
     .mobile-auth-header{
 		display: flex;
